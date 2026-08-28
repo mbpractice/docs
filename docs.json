@@ -48,11 +48,23 @@
           },
           {
             "group": "Surveys, Forms & Assessments",
-            "pages": []
+            "pages": [
+              "forms/create-custom-survey",
+              "forms/create-packet",
+              "forms/cohorts-scheduled-packets"
+            ]
           },
           {
             "group": "Billing, Insurance & Claims",
-            "pages": []
+            "pages": [
+              "billing/set-up-claims-center",
+              "billing/edit-resubmit-claim",
+              "billing/secondary-insurance",
+              "billing/write-offs",
+              "billing/offline-payments",
+              "billing/insurance-automation",
+              "billing/manage-starting-balances"
+            ]
           },
           {
             "group": "Reports",
