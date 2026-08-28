@@ -11,109 +11,77 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Getting Started",
+        "tab": "Help Center",
         "groups": [
           {
-            "group": "Overview",
-            "pages": [
-              "introduction",
-              "getting-started/quickstart",
-              "getting-started/account-setup",
-              "getting-started/navigating-the-platform"
-            ]
+            "group": "Start Here",
+            "pages": []
           },
           {
-            "group": "User Management",
-            "pages": [
-              "user-management/roles-and-permissions",
-              "user-management/inviting-staff",
-              "user-management/authentication"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Clinical Workflows",
-        "groups": [
-          {
-            "group": "Patients",
-            "pages": [
-              "patients/patient-records",
-              "patients/registering-patients",
-              "patients/medical-history",
-              "patients/care-team"
-            ]
+            "group": "Account & Staff Setup",
+            "pages": []
           },
           {
-            "group": "Scheduling",
-            "pages": [
-              "scheduling/appointments",
-              "scheduling/calendar-management",
-              "scheduling/waitlists-and-recalls"
-            ]
+            "group": "Clients & Client Portal",
+            "pages": []
+          },
+          {
+            "group": "Scheduling & Telehealth",
+            "pages": []
           },
           {
             "group": "Clinical Documentation",
-            "pages": [
-              "clinical/encounter-notes",
-              "clinical/templates-and-forms",
-              "clinical/e-prescribing",
-              "clinical/lab-and-imaging-orders"
-            ]
+            "pages": []
           },
           {
-            "group": "Billing",
-            "pages": [
-              "billing/overview",
-              "billing/insurance-claims",
-              "billing/patient-payments",
-              "billing/reports"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Integrations & API",
-        "groups": [
+            "group": "Surveys, Forms & Assessments",
+            "pages": []
+          },
+          {
+            "group": "Billing, Insurance & Claims",
+            "pages": []
+          },
+          {
+            "group": "Reports",
+            "pages": []
+          },
           {
             "group": "Integrations",
-            "pages": [
-              "integrations/overview",
-              "integrations/lab-integrations",
-              "integrations/health-information-exchange",
-              "integrations/third-party-apps"
-            ]
+            "pages": []
           },
           {
-            "group": "API Reference",
-            "pages": [
-              "api/overview",
-              "api/authentication",
-              "api/patients",
-              "api/appointments",
-              "api/clinical-data"
-            ]
+            "group": "Troubleshooting & Support",
+            "pages": []
           }
         ]
       },
       {
-        "tab": "Compliance & Support",
+        "tab": "Client Guides",
         "groups": [
           {
-            "group": "Compliance",
-            "pages": [
-              "compliance/hipaa",
-              "compliance/data-privacy",
-              "compliance/audit-logs"
-            ]
+            "group": "Getting Started",
+            "pages": []
           },
           {
-            "group": "Troubleshooting",
-            "pages": [
-              "support/faq",
-              "support/common-issues",
-              "support/contacting-support"
-            ]
+            "group": "Appointments & Telehealth",
+            "pages": []
+          },
+          {
+            "group": "Forms & Documents",
+            "pages": []
+          },
+          {
+            "group": "Payments & Invoices",
+            "pages": []
+          }
+        ]
+      },
+      {
+        "tab": "What's New",
+        "groups": [
+          {
+            "group": "Release Notes",
+            "pages": []
           }
         ]
       }
