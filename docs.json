@@ -68,11 +68,20 @@
           },
           {
             "group": "Reports",
-            "pages": []
+            "pages": [
+              "reports/billing-vs-collected",
+              "reports/note-status",
+              "reports/prior-authorizations",
+              "reports/missed-sessions"
+            ]
           },
           {
             "group": "Troubleshooting & Support",
-            "pages": []
+            "pages": [
+              "support/claim-warnings",
+              "support/contact-support",
+              "support/telehealth-troubleshooting"
+            ]
           }
         ]
       },
@@ -88,15 +97,24 @@
           },
           {
             "group": "Appointments & Telehealth",
-            "pages": []
+            "pages": [
+              "client-guides/telehealth-camera-microphone",
+              "client-guides/upcoming-appointments",
+              "client-guides/appointment-reminders"
+            ]
           },
           {
             "group": "Forms & Documents",
-            "pages": []
+            "pages": [
+              "client-guides/forms-documents"
+            ]
           },
           {
             "group": "Payments & Invoices",
-            "pages": []
+            "pages": [
+              "client-guides/make-a-payment",
+              "client-guides/invoices-superbills"
+            ]
           }
         ]
       },
@@ -105,7 +123,9 @@
         "groups": [
           {
             "group": "Release Notes",
-            "pages": []
+            "pages": [
+              "whats-new/overview"
+            ]
           }
         ]
       }
