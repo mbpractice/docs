@@ -15,23 +15,36 @@
         "groups": [
           {
             "group": "Start Here",
-            "pages": []
+            "pages": [
+              "start-here/welcome"
+            ]
           },
           {
             "group": "Account & Staff Setup",
-            "pages": []
+            "pages": [
+              "account-and-staff/invite-users",
+              "account-and-staff/inactivate-professional",
+              "account-and-staff/signatures-auto-sign",
+              "account-and-staff/facilities-rooms",
+              "account-and-staff/professional-default-rates"
+            ]
           },
           {
             "group": "Clients & Client Portal",
-            "pages": []
+            "pages": [
+              "clients/client-portal-access",
+              "clients/additional-provider-access",
+              "clients/online-booking"
+            ]
           },
           {
             "group": "Scheduling & Telehealth",
-            "pages": []
-          },
-          {
-            "group": "Clinical Documentation",
-            "pages": []
+            "pages": [
+              "scheduling/add-appointments",
+              "scheduling/google-calendar-sync",
+              "scheduling/groups-couples-families",
+              "scheduling/appointment-reminders"
+            ]
           },
           {
             "group": "Surveys, Forms & Assessments",
@@ -46,10 +59,6 @@
             "pages": []
           },
           {
-            "group": "Integrations",
-            "pages": []
-          },
-          {
             "group": "Troubleshooting & Support",
             "pages": []
           }
@@ -60,7 +69,10 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": []
+            "pages": [
+              "client-guides/access-client-portal",
+              "client-guides/portal-time-zone"
+            ]
           },
           {
             "group": "Appointments & Telehealth",
