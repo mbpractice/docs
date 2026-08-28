@@ -11,108 +11,139 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Getting Started",
+        "tab": "Help Center",
         "groups": [
           {
-            "group": "Overview",
+            "group": "Start Here",
             "pages": [
-              "introduction",
-              "getting-started/quickstart",
-              "getting-started/account-setup",
-              "getting-started/navigating-the-platform"
+              "start-here/welcome"
             ]
           },
           {
-            "group": "User Management",
+            "group": "Account & Staff Setup",
             "pages": [
-              "user-management/roles-and-permissions",
-              "user-management/inviting-staff",
-              "user-management/authentication"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Clinical Workflows",
-        "groups": [
-          {
-            "group": "Patients",
-            "pages": [
-              "patients/patient-records",
-              "patients/registering-patients",
-              "patients/medical-history",
-              "patients/care-team"
+              "account-and-staff/invite-users",
+              "account-and-staff/inactivate-professional",
+              "account-and-staff/signatures-auto-sign",
+              "account-and-staff/facilities-rooms",
+              "account-and-staff/professional-default-rates",
+              "account-and-staff/user-roles-permissions"
             ]
           },
           {
-            "group": "Scheduling",
+            "group": "Clients & Client Portal",
             "pages": [
-              "scheduling/appointments",
-              "scheduling/calendar-management",
-              "scheduling/waitlists-and-recalls"
+              "clients/client-portal-access",
+              "clients/additional-provider-access",
+              "clients/online-booking"
+            ]
+          },
+          {
+            "group": "Scheduling & Telehealth",
+            "pages": [
+              "scheduling/add-appointments",
+              "scheduling/google-calendar-sync",
+              "scheduling/groups-couples-families",
+              "scheduling/appointment-reminders"
+            ]
+          },
+          {
+            "group": "Surveys, Forms & Assessments",
+            "pages": [
+              "forms/create-custom-survey",
+              "forms/create-packet",
+              "forms/cohorts-scheduled-packets"
+            ]
+          },
+          {
+            "group": "Billing, Insurance & Claims",
+            "pages": [
+              "billing/set-up-claims-center",
+              "billing/edit-resubmit-claim",
+              "billing/secondary-insurance",
+              "billing/write-offs",
+              "billing/offline-payments",
+              "billing/insurance-automation",
+              "billing/manage-starting-balances"
+            ]
+          },
+          {
+            "group": "Reports",
+            "pages": [
+              "reports/billing-vs-collected",
+              "reports/note-status",
+              "reports/prior-authorizations",
+              "reports/missed-sessions"
+            ]
+          },
+          {
+            "group": "Troubleshooting & Support",
+            "pages": [
+              "support/claim-warnings",
+              "support/contact-support",
+              "support/telehealth-troubleshooting"
             ]
           },
           {
             "group": "Clinical Documentation",
             "pages": [
-              "clinical/encounter-notes",
-              "clinical/templates-and-forms",
-              "clinical/e-prescribing",
-              "clinical/lab-and-imaging-orders"
+              "clinical/write-session-note",
+              "clinical/diagnosis-treatment-plans",
+              "clinical/copy-previous-note",
+              "clinical/group-notes",
+              "clinical/ai-notes",
+              "clinical/export-client-record"
             ]
           },
-          {
-            "group": "Billing",
-            "pages": [
-              "billing/overview",
-              "billing/insurance-claims",
-              "billing/patient-payments",
-              "billing/reports"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Integrations & API",
-        "groups": [
           {
             "group": "Integrations",
             "pages": [
-              "integrations/overview",
-              "integrations/lab-integrations",
-              "integrations/health-information-exchange",
-              "integrations/third-party-apps"
-            ]
-          },
-          {
-            "group": "API Reference",
-            "pages": [
-              "api/overview",
-              "api/authentication",
-              "api/patients",
-              "api/appointments",
-              "api/clinical-data"
+              "integrations/dosespot-prescriptions",
+              "integrations/claimmd"
             ]
           }
         ]
       },
       {
-        "tab": "Compliance & Support",
+        "tab": "Client Guides",
         "groups": [
           {
-            "group": "Compliance",
+            "group": "Getting Started",
             "pages": [
-              "compliance/hipaa",
-              "compliance/data-privacy",
-              "compliance/audit-logs"
+              "client-guides/access-client-portal",
+              "client-guides/portal-time-zone"
             ]
           },
           {
-            "group": "Troubleshooting",
+            "group": "Appointments & Telehealth",
             "pages": [
-              "support/faq",
-              "support/common-issues",
-              "support/contacting-support"
+              "client-guides/telehealth-camera-microphone",
+              "client-guides/upcoming-appointments",
+              "client-guides/appointment-reminders"
+            ]
+          },
+          {
+            "group": "Forms & Documents",
+            "pages": [
+              "client-guides/forms-documents"
+            ]
+          },
+          {
+            "group": "Payments & Invoices",
+            "pages": [
+              "client-guides/make-a-payment",
+              "client-guides/invoices-superbills"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "What's New",
+        "groups": [
+          {
+            "group": "Release Notes",
+            "pages": [
+              "whats-new/overview"
             ]
           }
         ]
