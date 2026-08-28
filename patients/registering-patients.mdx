@@ -1,0 +1,126 @@
+---
+title: "Register a New Patient: Demographics, Insurance, and Portal"
+sidebarTitle: "Register Patients"
+description: "Step-by-step guide to registering new patients, capturing demographics and insurance, and inviting patients to the patient portal."
+---
+
+Registering a new patient is the first step in delivering care through your EHR. A complete and accurate registration record ensures smooth clinical workflows, correct insurance billing, and a positive patient experience from day one. This guide walks you through every stage of the registration process — from entering basic demographics to sending a portal invitation.
+
+<Note>
+Fields marked with an asterisk (\*) are required before an encounter can be billed to insurance. Incomplete demographic or insurance information may result in claim rejections. Review the required fields table below before saving a new patient record.
+</Note>
+
+## Registering a New Patient
+
+<Steps>
+  <Step title="Navigate to the Patients Module">
+    In the top navigation bar, click **Patients**. The patient list opens. Click the **+ New Patient** button in the upper-right corner of the screen to open the registration form.
+  </Step>
+  <Step title="Enter Patient Demographics">
+    Fill in the patient's core identifying information in the **Demographics** tab:
+
+    - **Legal first and last name** (required)
+    - **Date of birth** (required)
+    - **Biological sex** and **gender identity** (required for clinical decision support)
+    - **Address** — street, city, state, and ZIP code
+    - **Phone numbers** — primary (mobile or home) and an optional alternate number
+    - **Email address** — used for portal invitations and appointment reminders
+    - **Preferred language** — triggers interpreter workflow flags when set to a language other than English
+    - **Race and ethnicity** — required for meaningful use and quality reporting
+    - **Preferred name and pronouns** — displayed throughout the chart and in patient-facing communications
+
+    As you type the patient's name and date of birth, the system automatically scans for potential duplicates and displays a warning if a matching record is found. See [Duplicate Patient Detection](#duplicate-patient-detection) below.
+  </Step>
+  <Step title="Add Insurance Information">
+    Click the **Insurance** tab to enter payer details. Select **+ Add Insurance** and complete the following:
+
+    - **Insurance type** — Primary, Secondary, or Tertiary
+    - **Payer name** — search by payer name or payer ID
+    - **Member ID / Subscriber ID** (required for billing)
+    - **Group number**
+    - **Policy holder name and relationship to patient**
+    - **Policy holder date of birth** (required if policy holder is not the patient)
+    - **Effective date** and **termination date** (if known)
+
+    Click **Verify Eligibility** to run a real-time eligibility check against the payer. A green badge confirms active coverage. A yellow badge indicates the check is pending. A red badge means coverage could not be confirmed — review the payer details and retry.
+  </Step>
+  <Step title="Add Emergency Contacts">
+    Click the **Contacts** tab and select **+ Add Emergency Contact**. Enter:
+
+    - **Contact name** (required)
+    - **Relationship to patient**
+    - **Primary phone number** (required)
+    - **Alternate phone number**
+    - **May this contact access patient health information?** — select Yes or No to document the patient's consent for information sharing.
+
+    You can add up to five emergency contacts. Drag and drop to reorder them by priority.
+  </Step>
+  <Step title="Review and Save">
+    Click the **Review** tab to see a summary of all entered information before saving. Verify that:
+
+    - The patient's name and date of birth are spelled correctly.
+    - At least one phone number or email address is on file.
+    - Insurance fields are complete if the patient has coverage.
+    - No duplicate alert is displayed (or the duplicate has been reviewed and dismissed).
+
+    Click **Save Patient** to create the record. The system assigns a unique **Medical Record Number (MRN)** and opens the new patient chart.
+  </Step>
+</Steps>
+
+## Required vs. Optional Fields
+
+The table below lists the key registration fields and their requirements for clinical use and insurance billing.
+
+| Field | Clinical Requirement | Billing Requirement |
+|---|---|---|
+| Legal first and last name | Required | Required |
+| Date of birth | Required | Required |
+| Biological sex | Required | Required |
+| Gender identity | Required | Optional |
+| Address | Optional | Required |
+| Primary phone number | Required | Required |
+| Email address | Optional | Optional |
+| Preferred language | Optional | Optional |
+| Race and ethnicity | Required (quality measures) | Optional |
+| Primary insurance payer | Optional | Required |
+| Member ID / Subscriber ID | Optional | Required |
+| Group number | Optional | Recommended |
+| Policy holder name | Optional | Required (if not self) |
+| Emergency contact name | Optional | Optional |
+| Emergency contact phone | Optional | Optional |
+
+## Duplicate Patient Detection
+
+Your EHR automatically checks for potential duplicate records while you complete the demographics step. The system compares the new entry against existing patients using:
+
+- First name, last name, and date of birth
+- Phone number
+- Email address
+- Social Security Number (if entered)
+
+If a potential match is found, a **Duplicate Detected** banner appears at the top of the registration form, listing the matching patient(s) with their MRN, date of birth, and last visit date.
+
+**If the patient is truly new:** Click **Dismiss and Continue** to confirm this is a unique patient and proceed with registration.
+
+**If the patient already exists:** Click **Open Existing Record** to navigate to the existing chart. Do not create a second record — duplicate charts can cause clinical errors and billing issues.
+
+**If you are unsure:** Click **Compare Side-by-Side** to review the existing record and the new entry together before deciding.
+
+Admins can review and merge any duplicates that slip through in **Admin** → **Duplicate Management**.
+
+## Patient Portal Invitation
+
+After saving a new patient record, you can invite the patient to activate their patient portal account. The portal allows patients to view their health summary, send secure messages, complete intake forms, and view appointment details.
+
+To send a portal invitation:
+
+1. From the newly created patient chart, click **Quick Actions** → **Send Portal Invitation**.
+2. Verify the patient's email address is correct. If it is missing, click **Edit Demographics** to add it first.
+3. Select whether to send the invitation immediately or schedule it for a specific date and time.
+4. Click **Send Invitation**.
+
+The patient receives an email with a secure activation link valid for **72 hours**. If the link expires, you can resend the invitation from **Quick Actions** → **Resend Portal Invitation**.
+
+<Note>
+Patients must complete portal activation before they can submit online intake forms or communicate via secure messaging. Encourage patients to activate their portal at check-in if they have not done so before their first appointment.
+</Note>

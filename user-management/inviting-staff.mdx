@@ -1,0 +1,73 @@
+---
+title: "Inviting and Managing Staff Members in Your EHR Practice"
+sidebarTitle: "Invite Staff"
+description: "Learn how to invite new staff members to your EHR, manage pending invitations, and safely deactivate users who leave your practice."
+---
+
+Adding a new team member to your EHR takes only a few minutes. You send an email invitation, the staff member sets their own password, and they land in the system with the exact role and permissions you chose — no IT ticket required. This guide walks you through the full lifecycle of a staff account: inviting, onboarding, and eventually deactivating users when they leave your practice.
+
+<Tip>
+  If you're onboarding a large practice or migrating from another system, you can import multiple users at once using the **Bulk Import** feature under **Settings → Users → Import CSV**. Download the template, fill in each staff member's name, email address, and role, then upload the file. Invitations are sent automatically to every valid entry.
+</Tip>
+
+## Inviting a New Staff Member
+
+<Steps>
+  <Step title="Open User Settings">
+    Navigate to **Settings** in the left sidebar, then select **Users & Roles → Users**.
+  </Step>
+  <Step title="Click Invite User">
+    Click the **Invite User** button in the top-right corner of the Users page.
+  </Step>
+  <Step title="Enter their details">
+    Fill in the staff member's **first name**, **last name**, and **email address**. Select their **role** from the dropdown (see [Roles & Permissions](/user-management/roles-and-permissions) for a full breakdown of what each role can access).
+  </Step>
+  <Step title="Set optional preferences">
+    Optionally, assign the user to a specific **location** (for multi-site practices) and add them to any relevant **care teams**. You can also add a personal note that will appear in the invitation email.
+  </Step>
+  <Step title="Send the invitation">
+    Click **Send Invite**. The staff member receives an email with a secure, time-limited link to set their password and complete their profile. The invitation link expires after **72 hours**.
+  </Step>
+</Steps>
+
+Once the staff member accepts the invitation and completes setup, their status changes from **Pending** to **Active** and they can log in immediately.
+
+## Managing Pending Invitations
+
+You can view all outstanding invitations from **Settings → Users → Pending Invitations**. The table shows the invitee's email address, the role they were assigned, who sent the invitation, and when it was sent.
+
+### Resending an Invitation
+
+If a staff member didn't receive their invitation email or the link has expired, you can send a fresh one:
+
+1. Go to **Settings → Users → Pending Invitations**.
+2. Find the staff member's entry and click the **⋯** menu on their row.
+3. Select **Resend Invitation**. A new 72-hour link is generated and sent immediately. The old link is invalidated.
+
+### Cancelling an Invitation
+
+To cancel an invitation before it is accepted, click **⋯ → Cancel Invitation** on the pending entry. The link is revoked instantly. You can re-invite the same email address at any time.
+
+## Deactivating a User
+
+When a staff member leaves your practice, deactivate their account promptly to remove their access to patient records and all other system data.
+
+<Warning>
+  Before deactivating a user, review their open patient assignments, incomplete encounter notes, and any pending prescription or lab order tasks. Deactivating a user does **not** automatically reassign these items. Unaddressed tasks may delay patient care. Reassign open work to another active provider or staff member before proceeding.
+</Warning>
+
+To deactivate a user:
+
+1. Go to **Settings → Users** and find the staff member.
+2. Click their name to open their profile, then click **Deactivate User** at the bottom of the page.
+3. Confirm the action in the dialog. You can optionally add a note (for example, the last day of employment) that is recorded in the audit log.
+
+Deactivated users cannot log in and do not appear in scheduling or assignment dropdowns. Their historical activity — including all notes, orders, and audit entries — is preserved in full and remains accessible to Administrators for compliance and continuity of care.
+
+### Reactivating a User
+
+If you need to restore access (for example, a contractor who returns), go to **Settings → Users**, use the **Status** filter to show **Inactive** users, open their profile, and click **Reactivate User**. Their role and permissions are restored exactly as they were before deactivation.
+
+<Note>
+  Your EHR retains a complete, tamper-evident audit log of all user management actions — invitations sent, roles changed, and accounts deactivated — with timestamps and the identity of the administrator who made each change. This log is available under **Settings → Audit Log** and can be exported for compliance reviews.
+</Note>

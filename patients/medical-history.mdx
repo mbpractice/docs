@@ -1,0 +1,164 @@
+---
+title: "Document and Review Patient Medical History in Your EHR"
+sidebarTitle: "Medical History"
+description: "Learn how to document, update, and reconcile a patient's problem list, medications, allergies, surgical history, family history, and more."
+---
+
+A thorough, up-to-date medical history is the foundation of safe, effective patient care. Your EHR consolidates every component of a patient's health background — from chronic conditions and current medications to family history and immunization records — into a single, structured Medical History section. Keeping this information current enables accurate clinical decision support, reduces risk, and streamlines every encounter note.
+
+<Warning>
+**Allergy documentation is a patient safety critical task.** Always document allergies using structured entries rather than free text so the system can trigger drug-allergy interaction alerts. Avoid noting allergies only in encounter notes or free-text fields — these entries are not checked by the clinical decision support engine. Confirm and reconcile allergy information at every visit.
+</Warning>
+
+## Accessing Medical History
+
+Open a patient chart and click the **Medical History** tab. The section is divided into sub-categories accessible from the left-hand sidebar within the tab. Click any category to jump directly to it.
+
+## Medical History Sections
+
+<AccordionGroup>
+  <Accordion title="Problem List" icon="list-check">
+    The problem list is a structured, prioritized list of the patient's active and historical diagnoses and chronic conditions.
+
+    **To add a problem:**
+    1. Click **+ Add Problem** in the Problem List section.
+    2. Search for the condition using plain language (e.g., "type 2 diabetes") or ICD-10 code. The system returns matching coded results.
+    3. Select the correct code from the dropdown.
+    4. Set the **status**: Active, Inactive, Resolved, or Chronic.
+    5. Enter the **onset date** (approximate dates are acceptable).
+    6. Add a **clinical note** if needed for context.
+    7. Click **Save**.
+
+    **To edit a problem:** Click the pencil icon next to the condition, update the fields, and click **Save**.
+
+    **To resolve or inactivate a problem:** Click the problem entry, change the status to **Resolved** or **Inactive**, enter the resolution date, and save. Resolved problems move to the **Historical Problems** section but remain visible.
+
+    Problems marked **Active** or **Chronic** automatically populate the encounter note's Assessment section to streamline documentation.
+  </Accordion>
+
+  <Accordion title="Medications" icon="pills">
+    The medication list tracks all current, discontinued, and historical medications — including prescription, over-the-counter, and herbal/supplement entries.
+
+    **To add a medication:**
+    1. Click **+ Add Medication**.
+    2. Search by drug name, NDC, or RxNorm code.
+    3. Select the drug and choose the **dose**, **form**, **route**, and **frequency**.
+    4. Set the **start date** and an **end date** if applicable.
+    5. Select the **prescribing provider**.
+    6. Add **patient instructions** or notes.
+    7. Click **Save**.
+
+    **To discontinue a medication:** Click the medication entry, set the status to **Discontinued**, enter the end date and reason, and save. Discontinued medications are retained in the medication history for reference.
+
+    The system checks all new entries against the existing medication list and allergy records for interaction and contraindication alerts.
+  </Accordion>
+
+  <Accordion title="Allergies" icon="triangle-exclamation">
+    Document all known drug, food, environmental, and contrast/dye allergies as structured entries.
+
+    **To add an allergy:**
+    1. Click **+ Add Allergy**.
+    2. Select the **allergy type**: Drug, Food, Environmental, or Other.
+    3. Search for the allergen by name or RxNorm/SNOMED code.
+    4. Select the **reaction type** from the list (e.g., anaphylaxis, hives, nausea, rash).
+    5. Set the **severity**: Mild, Moderate, or Severe.
+    6. Enter the **onset date** if known.
+    7. Add any additional clinical notes.
+    8. Click **Save**.
+
+    **To mark "No Known Allergies" (NKA):** Click the **NKA** button at the top of the Allergies section. This documents that allergies were reviewed and none are known — it is not the same as leaving the section blank.
+
+    **To edit or remove an allergy:** Click the entry, update the fields or click **Delete**, and save. Deletion is logged in the audit trail.
+
+    Active drug allergies display as a **red banner** in the patient chart header and trigger alerts during e-prescribing.
+  </Accordion>
+
+  <Accordion title="Surgical History" icon="scalpel">
+    Record past surgical procedures to inform clinical decision-making and pre-operative assessments.
+
+    **To add a surgical history entry:**
+    1. Click **+ Add Surgery**.
+    2. Search for the procedure by name or CPT/SNOMED code.
+    3. Enter the **date of surgery** (year is sufficient if the exact date is unknown).
+    4. Record the **facility or surgeon** if known.
+    5. Note any **complications** or relevant outcomes.
+    6. Click **Save**.
+
+    **To edit a surgical entry:** Click the pencil icon, update the relevant fields, and save. All edits are time-stamped.
+
+    Surgical history entries are available in the encounter note template under the Past Surgical History (PSH) section and can be inserted into notes with one click.
+  </Accordion>
+
+  <Accordion title="Family History" icon="people-group">
+    Document relevant hereditary conditions and family health patterns.
+
+    **To add a family history entry:**
+    1. Click **+ Add Family History**.
+    2. Select the **relationship** (e.g., Mother, Father, Sibling, Grandparent).
+    3. Search for the condition using plain language or ICD-10 code.
+    4. Note whether the relative is **living or deceased**. If deceased, you can optionally record the **cause of death** and **age at death**.
+    5. Click **Save**.
+
+    You can add multiple conditions for the same family member. Entries are grouped by relationship in the display view.
+
+    Family history findings that are relevant to hereditary risk (e.g., BRCA-related cancers, hereditary cardiac conditions) will trigger preventive care recommendations in the care gap engine.
+  </Accordion>
+
+  <Accordion title="Social History" icon="house-user">
+    Capture lifestyle and social determinants of health that influence care planning.
+
+    Social history is entered through a structured questionnaire. Click **Edit Social History** to open the form. Fields include:
+
+    | Category | Details Captured |
+    |---|---|
+    | **Tobacco use** | Current, former, or never; type and quantity |
+    | **Alcohol use** | Frequency, quantity, and AUDIT-C score |
+    | **Substance use** | Recreational drug use, type, and frequency |
+    | **Occupation** | Current occupation and industry |
+    | **Exercise** | Frequency and type of physical activity |
+    | **Diet** | Dietary restrictions or notable patterns |
+    | **Living situation** | Living alone, with family, in assisted living, etc. |
+    | **Sexual activity** | Number of partners, contraception use |
+    | **Travel history** | Recent international travel relevant to infectious disease |
+
+    Click **Save** to update the social history record. Changes are versioned so you can track how a patient's social circumstances evolve over time.
+  </Accordion>
+
+  <Accordion title="Immunizations" icon="syringe">
+    Track all administered and historical vaccines.
+
+    **To add an immunization:**
+    1. Click **+ Add Immunization**.
+    2. Search for the vaccine using the CVX code or plain-language name.
+    3. Enter the **date administered**.
+    4. Select the **route** (IM, subcutaneous, oral, etc.) and **site** (left deltoid, right thigh, etc.).
+    5. Enter the **lot number**, **manufacturer**, and **expiration date** for traceability.
+    6. Select the **administering provider**.
+    7. Click **Save**.
+
+    **To document a historical vaccine** (administered outside your practice): Follow the same steps and toggle **Historically Reported** to indicate this was not administered in your clinic.
+
+    The immunization module compares the patient's vaccine history against the current CDC recommended schedule and highlights any gaps or due immunizations in the **Care Gaps** panel.
+  </Accordion>
+</AccordionGroup>
+
+## Reconciling History from Imported Records
+
+When a patient's records are imported — via a Direct message, a Continuity of Care Document (CCD), or a manual document upload — the system places the imported data in a **Reconciliation Queue** rather than automatically updating the chart.
+
+To reconcile imported history:
+
+1. Open the patient chart and click the **Reconciliation** banner at the top of the Medical History tab. (This banner only appears when unreviewed imported data is present.)
+2. The reconciliation view displays the **incoming data** on the left and the **current chart data** on the right, side by side.
+3. For each section (Problems, Medications, Allergies, etc.), review each imported item and choose one of the following actions:
+   - **Accept** — adds the item to the chart as a structured entry.
+   - **Merge** — combines the imported item with an existing matching entry in the chart.
+   - **Reject** — discards the imported item (the reason is logged in the audit trail).
+4. Once all items in a section have been actioned, click **Complete Reconciliation** for that section.
+5. Repeat for all sections, then click **Finalize Reconciliation** to mark the import as fully reviewed.
+
+Reconciled data becomes part of the permanent patient record and is attributed to the clinician who performed the reconciliation.
+
+<Note>
+Reconciliation is required to satisfy Meaningful Use/Promoting Interoperability objectives when receiving patient health information from external sources. Your compliance dashboard tracks reconciliation completion rates.
+</Note>

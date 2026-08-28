@@ -1,0 +1,138 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "EHR Knowledge Base",
+  "colors": {
+    "primary": "#ef7025",
+    "light": "#eec9bc",
+    "dark": "#4fa1ab"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Getting Started",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "getting-started/quickstart",
+              "getting-started/account-setup",
+              "getting-started/navigating-the-platform"
+            ]
+          },
+          {
+            "group": "User Management",
+            "pages": [
+              "user-management/roles-and-permissions",
+              "user-management/inviting-staff",
+              "user-management/authentication"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Clinical Workflows",
+        "groups": [
+          {
+            "group": "Patients",
+            "pages": [
+              "patients/patient-records",
+              "patients/registering-patients",
+              "patients/medical-history",
+              "patients/care-team"
+            ]
+          },
+          {
+            "group": "Scheduling",
+            "pages": [
+              "scheduling/appointments",
+              "scheduling/calendar-management",
+              "scheduling/waitlists-and-recalls"
+            ]
+          },
+          {
+            "group": "Clinical Documentation",
+            "pages": [
+              "clinical/encounter-notes",
+              "clinical/templates-and-forms",
+              "clinical/e-prescribing",
+              "clinical/lab-and-imaging-orders"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "billing/overview",
+              "billing/insurance-claims",
+              "billing/patient-payments",
+              "billing/reports"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations & API",
+        "groups": [
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/overview",
+              "integrations/lab-integrations",
+              "integrations/health-information-exchange",
+              "integrations/third-party-apps"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "api/overview",
+              "api/authentication",
+              "api/patients",
+              "api/appointments",
+              "api/clinical-data"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Compliance & Support",
+        "groups": [
+          {
+            "group": "Compliance",
+            "pages": [
+              "compliance/hipaa",
+              "compliance/data-privacy",
+              "compliance/audit-logs"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "support/faq",
+              "support/common-issues",
+              "support/contacting-support"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@example.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Go to App",
+      "href": "https://app.example.com"
+    }
+  },
+  "footer": {
+    "socials": {}
+  }
+}

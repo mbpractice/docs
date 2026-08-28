@@ -1,0 +1,160 @@
+---
+title: "Troubleshoot Common EHR Platform Issues Step by Step"
+sidebarTitle: "Common Issues"
+description: "Step-by-step fixes for the most common EHR problems: login lockouts, missing lab results, rejected insurance claims, and prescription transmission errors."
+---
+
+Most day-to-day issues with your EHR platform can be resolved quickly with a few targeted troubleshooting steps. This page covers the problems most commonly reported by providers and staff, with clear guidance on causes and how to fix them. If you work through the steps below and the issue persists, [contact our support team](/support/contacting-support) with the details of what you have tried — that context helps us resolve your ticket faster.
+
+<AccordionGroup>
+
+  <Accordion title="Can't log in / Account is locked out">
+    **Symptom:** You are unable to sign in to your account. You may see an error such as "Invalid credentials," "Account locked," or "Too many failed attempts."
+
+    **Possible causes:**
+    - Incorrect password entered (passwords are case-sensitive)
+    - Account temporarily locked after 5 consecutive failed login attempts
+    - MFA device or app is out of sync with the correct time
+    - Account deactivated by an administrator
+    - SSO (Single Sign-On) configuration issue at your identity provider
+
+    **Steps to resolve:**
+    1. **Reset your password** using the Forgot Password link on the login page. See the [FAQ](/support/faq#how-do-i-reset-my-password) for full instructions.
+    2. If you see a **"Too many attempts — account locked"** message, wait **15 minutes** for the lockout to clear automatically, then try again. Alternatively, an organization administrator can manually unlock your account from **Settings → Users & Roles → Users → [Your Name] → Unlock Account**.
+    3. **MFA issues:** If your one-time code is being rejected, verify that your authenticator app's clock is synced correctly (in Google Authenticator: three-dot menu → Time correction for codes → Sync now). If you have lost access to your MFA device, contact your administrator to reset MFA on your account.
+    4. **SSO issues:** If your practice uses SSO (Google Workspace, Microsoft Entra, Okta, etc.), confirm you are signing in via your identity provider and that your account is active there. Contact your IT administrator if SSO authentication is failing.
+    5. If none of the above resolve the issue, [contact support](/support/contacting-support) and provide your username, the exact error message, and the approximate time of the failed attempt.
+  </Accordion>
+
+  <Accordion title="Appointment not showing on the calendar">
+    **Symptom:** An appointment you or a colleague scheduled does not appear on the provider or location calendar, or disappears after being confirmed.
+
+    **Possible causes:**
+    - The appointment was scheduled for a different provider or location than the one currently displayed
+    - Calendar filters are hiding the appointment type or status
+    - The appointment was inadvertently cancelled or marked as a no-show
+    - The appointment was saved to a draft state and not confirmed
+    - A browser cache issue is displaying a stale version of the calendar
+
+    **Steps to resolve:**
+    1. **Check your filters.** In the calendar view, click **Filters** and verify that you are not excluding the appointment type (e.g., New Patient, Follow-up, Telehealth), status (Scheduled, Confirmed, Pending), or provider associated with the appointment.
+    2. **Search for the appointment directly.** Go to **Scheduling → Appointment Search**, enter the patient's name and the approximate date, and search across all providers and locations. If the appointment appears here but not on the calendar, a filter is the likely culprit.
+    3. **Check the appointment status.** If the appointment is listed as Draft, open it and click **Confirm Appointment** to finalize it.
+    4. **Clear your browser cache.** Press Ctrl+Shift+R (Windows/Linux) or Cmd+Shift+R (Mac) to perform a hard refresh, or clear your browser's cached data and reload.
+    5. If the appointment is missing entirely, check the **Deleted Appointments** section under **Scheduling → Appointment Search → Show Deleted** to see if it was cancelled or deleted. Appointments deleted within the last 30 days can be restored by an administrator.
+  </Accordion>
+
+  <Accordion title="Lab results not appearing in the patient chart">
+    **Symptom:** You ordered a lab test and the results have been completed by the laboratory, but they are not visible in the patient's chart under Labs & Results.
+
+    **Possible causes:**
+    - The result was received but routed to an unreviewed results queue rather than filed to the chart
+    - The patient demographics in the lab result do not exactly match the chart (name, DOB, or MRN mismatch)
+    - The lab interface experienced a temporary transmission interruption
+    - The result was filed to a different patient due to an ordering error
+
+    **Steps to resolve:**
+    1. **Check the pending results inbox.** Navigate to **Results → Incoming Results Inbox**. Results that have been received but not yet reconciled to a chart will appear here. Find the result and click **Match to Patient** to link it to the correct chart.
+    2. **Verify the order status.** Open the patient chart and go to **Orders → Lab Orders**. Find the relevant order and check its status. If it shows **Sent** or **Pending**, the lab has not yet returned the result. If it shows an error, see step 4.
+    3. **Check for demographic mismatches.** If the lab result contains a slightly different name spelling or date of birth, the auto-matching algorithm may not have linked it. In the Incoming Results Inbox, use **Search by Accession Number** (from the lab's paper or fax confirmation) to find the unmatched result.
+    4. **Contact the lab directly.** If the result is overdue and does not appear in the inbox, call the laboratory to confirm whether the result was resulted and verify the transmission method. Provide the accession number.
+    5. **Check the interface error log.** Administrators can review lab interface transmission errors under **Settings → Integrations → Laboratory Interfaces → [Lab Name] → Error Log**. If you see recent errors, [contact support](/support/contacting-support) with the interface name and the error details.
+  </Accordion>
+
+  <Accordion title="Insurance claim rejected by clearinghouse">
+    **Symptom:** A submitted insurance claim is returned with a rejection notice from the clearinghouse. You may see an error code and rejection reason in the **Billing → Claims** dashboard.
+
+    **Possible causes:**
+    - Invalid or missing patient insurance ID or group number
+    - NPI mismatch (rendering vs. billing provider)
+    - Incorrect or missing diagnosis codes (ICD-10)
+    - Procedure code (CPT) not covered or requires prior authorization
+    - Duplicate claim submission
+    - Payer enrollment not completed for the billing provider
+
+    **Steps to resolve:**
+    1. **Read the rejection reason carefully.** Open the rejected claim and expand the **Rejection Detail** section. The clearinghouse provides a reason code and description — this is the most specific indicator of what needs to be corrected.
+    2. **Verify patient insurance information.** Confirm the subscriber ID, group number, payer ID, and effective dates match what is on the patient's insurance card. Correct any discrepancies in the patient's **Insurance** tab.
+    3. **Check provider enrollment.** Navigate to **Settings → Billing → Payer Enrollment** and confirm the billing and rendering providers are enrolled with the relevant payer. If enrollment is pending or expired, update it before resubmitting.
+    4. **Review diagnosis and procedure codes.** Open the encounter and confirm that all ICD-10 codes are current and valid, that each CPT code is medically necessary for the listed diagnoses, and that any codes requiring modifiers include the correct modifier.
+    5. **Resubmit the corrected claim.** After making corrections, return to the claim in **Billing → Claims**, click **Correct and Resubmit**, and confirm the resubmission. Track the resubmission status in the claims dashboard.
+    6. For persistent or unclear rejections, [contact support](/support/contacting-support) with the claim ID and rejection code — our billing support specialists can help interpret complex payer edits.
+  </Accordion>
+
+  <Accordion title="Patient record merge issues">
+    **Symptom:** A patient appears to have duplicate records in the system, or a merge was performed and some data appears missing or in the wrong chart.
+
+    **Possible causes:**
+    - Patient was registered twice (different spellings of name, different DOB entered)
+    - Two patients with very similar demographics were incorrectly identified as duplicates
+    - Merge was performed but some linked data (orders, billing) did not consolidate
+
+    **Steps to resolve:**
+    1. **Identify the duplicate records.** Go to **Patients → Duplicate Management** (available to administrators). The system runs a nightly duplicate detection job that flags probable matches based on name, DOB, and other identifiers. Review flagged pairs before merging.
+    2. **Review both records carefully before merging.** Open each suspected duplicate side by side. Confirm they represent the same patient by verifying multiple identifiers (full name, DOB, address, last four of SSN if available). Do **not** merge records if you have any doubt — a wrongful merge is difficult to undo.
+    3. **Perform the merge.** From **Patients → Duplicate Management**, select the two records and click **Merge Records**. Designate which record is the **primary** (surviving) chart. All clinical data, orders, billing history, and documents from the secondary record are consolidated into the primary.
+    4. **If a merge was performed incorrectly:** Contact [support](/support/contacting-support) immediately with both patient MRNs and a description of what happened. Merge reversals are possible within **7 days** of the merge but require support intervention and should be treated as urgent.
+
+    <Warning>
+      Patient record merges are difficult to reverse. Always confirm patient identity across multiple data points before proceeding, and have a second staff member review the merge decision when possible.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Prescription not transmitting to pharmacy">
+    **Symptom:** You sent an electronic prescription from the patient chart, but the pharmacy reports they have not received it, or the prescription shows an error status in the e-prescribing module.
+
+    **Possible causes:**
+    - Pharmacy is not enrolled in Surescripts or has a connectivity issue
+    - The prescription contains an incomplete or invalid field (e.g., missing quantity, DAW code)
+    - DEA EPCS two-factor authentication was not completed for a controlled substance
+    - The prescriber's Surescripts account is not fully activated
+    - A temporary Surescripts network issue
+
+    **Steps to resolve:**
+    1. **Check the prescription status.** In the patient chart, go to **Medications → Prescription History** and locate the prescription. The status column will show **Sent**, **Delivered**, **Error**, or **Pending**. Click the status for detailed transmission information.
+    2. **Review error details.** If the status is **Error**, the error description will indicate the issue (e.g., "Pharmacy not found," "Missing required field," "Identity proofing required"). Address the specific error noted.
+    3. **Verify the pharmacy.** Confirm the pharmacy selected is correct and search for it by NCPDP ID if the name search returns ambiguous results. For independent pharmacies or compounding pharmacies, call the pharmacy to confirm their Surescripts NCPDP ID.
+    4. **EPCS issues:** For controlled substances, confirm you completed the two-factor authentication step at the time of signing (you should have been prompted for your EPCS token or authenticator code). If EPCS is not activated on your account, go to **Settings → Provider Profile → E-Prescribing → EPCS Enrollment** to complete the DEA-required identity proofing.
+    5. **Resend or print the prescription.** If electronic transmission is not possible, you can print a prescription from the prescription detail view (for non-controlled substances in states that allow paper) or contact the pharmacy directly. Always document the issue in the patient chart notes.
+    6. If the issue persists across multiple prescriptions or pharmacies, [contact support](/support/contacting-support) — there may be a broader Surescripts connectivity issue affecting your account.
+  </Accordion>
+
+  <Accordion title="Slow page loading or performance issues">
+    **Symptom:** Pages in the EHR are loading slowly, freezing, or timing out. This may affect all users in your practice or only specific users or features.
+
+    **Possible causes:**
+    - Slow or unstable internet connection at your location
+    - Browser extensions interfering with page performance
+    - Outdated browser version
+    - Browser cache or cookies are corrupted or excessive
+    - High server load during peak hours (rare)
+    - Local device performance issue (insufficient RAM, CPU-intensive background processes)
+
+    **Steps to resolve:**
+    1. **Test your internet connection.** Run a speed test at speedtest.net from the affected workstation. The EHR requires a minimum of **10 Mbps download / 5 Mbps upload** per concurrent user for optimal performance. If your speed is significantly below this, contact your ISP or IT administrator.
+    2. **Try a different browser or incognito mode.** Open the EHR in an incognito/private window. If performance improves, a browser extension is likely the cause — try disabling extensions one at a time to identify the culprit. The platform is optimized for Chrome (latest), Edge (latest), and Firefox (latest).
+    3. **Update your browser.** Ensure your browser is on the latest stable version. Go to the browser menu → Help → About to check for and apply updates.
+    4. **Clear the browser cache.** Press Ctrl+Shift+Delete (Windows/Linux) or Cmd+Shift+Delete (Mac) to open your browser's clear browsing data tool. Clear cached images, files, and cookies for the EHR domain, then reload.
+    5. **Check the status page.** Visit **status.ehrplatform.com** to see if there is an active incident or elevated response times affecting the platform. Subscribe to status updates to receive notifications for future incidents.
+    6. If slowness affects all users at your practice simultaneously and the status page shows no incident, [contact support](/support/contacting-support) with details of which pages are slow, when it started, and how many users are affected.
+  </Accordion>
+
+  <Accordion title="Unable to print or generate PDF reports">
+    **Symptom:** Clicking Print or Export to PDF in the EHR either does nothing, produces a blank page, or generates a corrupted or incomplete file.
+
+    **Possible causes:**
+    - Browser pop-up blocker is preventing the print window from opening
+    - A PDF viewer extension or system PDF printer is conflicting with the browser's built-in PDF generation
+    - The report data contains a character or attachment that is causing a rendering error
+    - The browser's print dialog is opening but the printer is offline or not selected correctly
+
+    **Steps to resolve:**
+    1. **Allow pop-ups for the EHR domain.** The print dialog opens in a new window. If your browser is blocking pop-ups, click the pop-up blocked notification in the address bar and select **Always allow pop-ups from this site**. Then try printing again.
+    2. **Use the correct print method.** When the print dialog opens, ensure you are printing to **Microsoft Print to PDF** (Windows), **Save as PDF** (Mac), or your physical printer — not to a third-party PDF printer that may override the formatting.
+    3. **Try a different browser.** If printing fails in your usual browser, try Chrome or Edge. PDF generation is most reliable in Chrome due to its built-in print engine.
+    4. **For blank or incomplete PDFs:** The report may contain an embedded image or attachment that is failing to render. Try exporting the report without attachments first, then separately download the attachments from the patient chart.
+    5. **Check the document queue.** Some longer reports (multi-page visit summaries, billing reports) are generated asynchronously. Navigate to **Reports → My Report Queue** to see if the report is processing and download it from there when complete.
+    6. If you cannot print specific report types consistently, [contact support](/support/contacting-support) with the report type, the browser and operating system version, and a screenshot of any error messages displayed.
+  </Accordion>
+
+</AccordionGroup>

@@ -1,0 +1,126 @@
+---
+title: "EHR Account Security: MFA, SSO, and API Key Configuration"
+sidebarTitle: "Authentication"
+description: "Configure password login, single sign-on, multi-factor authentication, and API keys to keep your EHR account and patient data secure."
+---
+
+Your EHR supports several authentication methods to accommodate the diverse security requirements of healthcare practices — from small clinics using simple password login to large health systems with enterprise SSO. Regardless of the method you choose, every authentication event is logged with a timestamp, device, and IP address to support HIPAA audit requirements. This guide explains how to configure each option and how to generate API keys for system integrations.
+
+## Password Login
+
+By default, every user account is secured with an email address and password. Passwords must meet the following minimum requirements:
+
+- At least **12 characters** in length
+- Contains at least one **uppercase letter**, one **lowercase letter**, one **number**, and one **special character**
+- Cannot match any of the last **10 previously used passwords**
+
+Users can update their password at any time from **Account → Security → Change Password**. Administrators can trigger a forced password reset for any user from **Settings → Users → [User Profile] → Reset Password**. An email with a secure reset link is sent to the user immediately.
+
+## Single Sign-On (SSO)
+
+If your organization uses an identity provider (IdP) such as Okta, Azure Active Directory, or Google Workspace, you can enable SAML 2.0-based SSO so staff log in with their existing organizational credentials.
+
+<Info>
+  SSO configuration requires Administrator access. Once SSO is enabled for your organization, all users are required to authenticate through your IdP. Password-only login is disabled automatically.
+</Info>
+
+To configure SSO:
+
+1. Go to **Settings → Security → Single Sign-On**.
+2. Download the **Service Provider (SP) Metadata** file and upload it to your identity provider to create a new application or SAML integration.
+3. Copy your IdP's **Metadata URL** (or upload their metadata XML) into the SSO configuration form.
+4. Map your IdP's user attributes to the EHR fields: `email`, `firstName`, `lastName`, and optionally `role`.
+5. Click **Test Configuration** to verify the connection, then click **Enable SSO**.
+
+Contact your account manager if you need assistance setting up SSO with a specific identity provider.
+
+## Multi-Factor Authentication (MFA)
+
+Multi-factor authentication adds a second layer of verification at login. Even if a password is compromised, an attacker cannot access the account without the second factor. Administrators can require MFA for all users organization-wide, or users can enable it voluntarily for their own account.
+
+### Enabling MFA for Your Account
+
+<Steps>
+  <Step title="Open Security Settings">
+    Click your avatar in the top-right corner, select **Account Settings**, then click the **Security** tab.
+  </Step>
+  <Step title="Start MFA setup">
+    Under **Multi-Factor Authentication**, click **Enable MFA**. You will be prompted to confirm your current password before proceeding.
+  </Step>
+  <Step title="Scan the QR code">
+    Open an authenticator app on your mobile device — such as Google Authenticator, Microsoft Authenticator, or Authy — and scan the QR code displayed on screen. This links the app to your account.
+  </Step>
+  <Step title="Verify the code">
+    Enter the 6-digit code currently shown in your authenticator app and click **Verify**. This confirms the link was set up correctly.
+  </Step>
+  <Step title="Save your backup codes">
+    Download or copy your **one-time backup codes** and store them somewhere secure (for example, a password manager). These codes let you regain access if you lose your authenticator device. Each code can only be used once.
+  </Step>
+</Steps>
+
+MFA is now active for your account. You will be prompted for a verification code each time you log in from an unrecognized device.
+
+### Enforcing MFA Organization-Wide
+
+Administrators can make MFA mandatory for all users. Go to **Settings → Security → Authentication Policy** and toggle **Require MFA for all users**. Existing users who have not yet enrolled are prompted to complete MFA setup on their next login and cannot access the system until they do.
+
+## Session Timeout Settings
+
+To limit exposure from unattended workstations — a common risk in clinical environments — you can configure automatic session timeouts.
+
+Navigate to **Settings → Security → Session Policy** to adjust the following:
+
+| Setting | Description | Default |
+|---|---|---|
+| **Idle Timeout** | Logs out a user after a period of inactivity | 15 minutes |
+| **Absolute Session Timeout** | Forces re-authentication after a maximum session length, regardless of activity | 8 hours |
+| **Remember This Device** | Allows users to skip MFA on trusted devices for a set number of days | 30 days |
+
+<Tip>
+  For workstations in shared clinical spaces — such as nurses' stations or exam rooms — set the idle timeout to **5–10 minutes** to prevent unauthorized access between patient interactions.
+</Tip>
+
+## API Keys for Integrations
+
+If you are building an integration or connecting a third-party tool to your EHR, use API keys to authenticate programmatic requests. API keys grant access based on the permissions of the user account they are generated under — always generate integration keys under a dedicated service account with the minimum required permissions.
+
+### Generating an API Key
+
+1. Go to **Settings → API Keys** (Administrator access required).
+2. Click **Generate New Key**.
+3. Give the key a descriptive name that identifies its purpose (for example, `billing-integration-prod` or `lab-system-webhook`).
+4. Select an **expiration date**. Keys can be set to expire in 30, 90, or 365 days, or set to never expire (not recommended for production integrations).
+5. Click **Generate**. Copy the key immediately — it is only shown once in full. After you close the dialog, only the last 4 characters are visible.
+
+### Using an API Key
+
+Pass your API key in the `Authorization` header of every HTTP request as a Bearer token:
+
+```http
+GET /api/v1/patients
+Authorization: Bearer YOUR_API_KEY
+```
+
+Here is a more complete example retrieving a specific patient record:
+
+```http
+GET /api/v1/patients/pt_01HXYZ123456
+Authorization: Bearer YOUR_API_KEY
+Accept: application/json
+```
+
+The API returns a `401 Unauthorized` response if the key is missing, invalid, or has been revoked. See the [API Reference](/api/overview) for full endpoint documentation.
+
+<Warning>
+  Never share your API key, commit it to source code, or include it in client-side code. If a key is exposed, revoke it immediately and generate a replacement. Treat API keys with the same sensitivity as passwords — they provide direct, authenticated access to patient data.
+</Warning>
+
+### Revoking an API Key
+
+If a key is compromised, no longer needed, or belongs to a decommissioned integration:
+
+1. Go to **Settings → API Keys**.
+2. Find the key by name or the last 4 characters and click **Revoke**.
+3. Confirm the action. Revocation is immediate — any request using that key returns `401 Unauthorized` within seconds.
+
+You can also set keys to auto-expire by configuring expiration dates when generating them, which is a good practice for time-limited projects or vendor engagements.

@@ -1,0 +1,158 @@
+{
+  "projectType": "saas",
+  "projectName": "EHR Knowledge Base",
+  "projectDescription": "A SaaS Electronic Health Records platform that helps healthcare providers manage patient records, clinical workflows, scheduling, billing, and care team collaboration.",
+  "theme": "almond",
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Getting Started",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "getting-started/quickstart",
+              "getting-started/account-setup",
+              "getting-started/navigating-the-platform"
+            ]
+          },
+          {
+            "group": "User Management",
+            "pages": [
+              "user-management/roles-and-permissions",
+              "user-management/inviting-staff",
+              "user-management/authentication"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Clinical Workflows",
+        "groups": [
+          {
+            "group": "Patients",
+            "pages": [
+              "patients/patient-records",
+              "patients/registering-patients",
+              "patients/medical-history",
+              "patients/care-team"
+            ]
+          },
+          {
+            "group": "Scheduling",
+            "pages": [
+              "scheduling/appointments",
+              "scheduling/calendar-management",
+              "scheduling/waitlists-and-recalls"
+            ]
+          },
+          {
+            "group": "Clinical Documentation",
+            "pages": [
+              "clinical/encounter-notes",
+              "clinical/templates-and-forms",
+              "clinical/e-prescribing",
+              "clinical/lab-and-imaging-orders"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "billing/overview",
+              "billing/insurance-claims",
+              "billing/patient-payments",
+              "billing/reports"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations & API",
+        "groups": [
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/overview",
+              "integrations/lab-integrations",
+              "integrations/health-information-exchange",
+              "integrations/third-party-apps"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "api/overview",
+              "api/authentication",
+              "api/patients",
+              "api/appointments",
+              "api/clinical-data"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Compliance & Support",
+        "groups": [
+          {
+            "group": "Compliance",
+            "pages": [
+              "compliance/hipaa",
+              "compliance/data-privacy",
+              "compliance/audit-logs"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "support/faq",
+              "support/common-issues",
+              "support/contacting-support"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Patient record management and medical history",
+    "Appointment scheduling and calendar management",
+    "Clinical encounter notes and documentation templates",
+    "Electronic prescribing (e-Rx)",
+    "Lab and imaging order management",
+    "Insurance claims and billing workflows",
+    "Patient payments and financial reporting",
+    "Role-based access control for care teams",
+    "HIPAA-compliant data storage and audit logging",
+    "Health Information Exchange (HIE) integration",
+    "Public REST API for third-party integrations",
+    "Multi-provider and multi-location support"
+  ],
+  "publicApiSurface": [
+    "GET /patients",
+    "POST /patients",
+    "GET /patients/{id}",
+    "PUT /patients/{id}",
+    "GET /appointments",
+    "POST /appointments",
+    "GET /appointments/{id}",
+    "PUT /appointments/{id}",
+    "DELETE /appointments/{id}",
+    "GET /clinical/encounters",
+    "POST /clinical/encounters",
+    "GET /clinical/encounters/{id}",
+    "POST /prescriptions",
+    "GET /prescriptions/{id}",
+    "POST /orders/lab",
+    "POST /orders/imaging",
+    "GET /billing/claims",
+    "POST /billing/claims",
+    "GET /billing/claims/{id}",
+    "POST /auth/token",
+    "GET /users",
+    "POST /users"
+  ]
+}

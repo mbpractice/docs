@@ -1,0 +1,74 @@
+---
+title: "EHR Practice Account Setup: Configure Before Going Live"
+sidebarTitle: "Account Setup"
+description: "Configure your practice information, provider profiles, timezone settings, and branding so your EHR account is ready before you invite your care team."
+---
+
+Before you invite staff members or begin entering patient data, take a few minutes to complete your practice account configuration. A well-configured account ensures that patient-facing documents display the correct practice details, appointments appear in the right timezone, claims include accurate billing information, and your team members inherit sensible default permissions from the start.
+
+<Tip>
+  Complete all sections of the practice setup before inviting staff members. Settings like timezone, NPI, and Tax ID affect documents, claims, and audit logs retroactively if changed after data has been entered — it's much easier to get them right from the beginning.
+</Tip>
+
+<Steps>
+  <Step title="Enter Your Practice Information">
+    Go to **Settings → Practice → General**. Fill in every required field:
+
+    - **Practice Name** — The legal name of your organization as it appears on claims and patient documents.
+    - **Primary Address** — Your main practice location. Add additional locations under **Settings → Locations** if you operate from multiple sites.
+    - **Phone & Fax** — Used on outbound faxes, referral letters, and patient portal communications.
+    - **NPI (Type 2)** — Your organization's National Provider Identifier. Required for electronic claim submission.
+    - **Tax ID / EIN** — Your Employer Identification Number for billing purposes.
+    - **Specialty** — Select the primary clinical specialty. This pre-populates default diagnosis code sets and note templates.
+
+    Click **Save Changes** before moving to the next section.
+  </Step>
+
+  <Step title="Configure Timezone & Locale">
+    Navigate to **Settings → Practice → Locale**. Select your **Timezone** from the dropdown — all appointment times, encounter timestamps, and audit log entries are stored and displayed relative to this setting.
+
+    Choose your preferred **Date Format** (MM/DD/YYYY or DD/MM/YYYY) and **Time Format** (12-hour or 24-hour). If your practice spans multiple time zones, individual provider profiles can override the practice-level timezone for their personal calendar views.
+  </Step>
+
+  <Step title="Add Provider Details">
+    Go to **Settings → Providers → Add Provider**. Create a profile for each clinician in your practice. Required fields include:
+
+    - **Legal Name** and **Credentials** (e.g., MD, DO, NP, PA)
+    - **Individual NPI (Type 1)**
+    - **DEA Number** (required if the provider will e-prescribe controlled substances)
+    - **Specialty and Taxonomy Code**
+    - **Signature** — Upload a PNG of the provider's signature for use on signed clinical documents.
+
+    Providers also receive their own login credentials and can set personal preferences (default note template, schedule color, and notification preferences) after their first login.
+  </Step>
+
+  <Step title="Customize Logo & Branding">
+    Navigate to **Settings → Practice → Branding**. Upload your practice logo (PNG or SVG, minimum 200 × 200 px, maximum 2 MB). The logo appears on:
+
+    - The patient portal login page
+    - Printed encounter summaries and after-visit notes
+    - Superbills and statements
+    - Outbound fax cover sheets
+
+    You can also set a **Primary Brand Color** (hex code) used as the accent color in the patient portal and email notifications. Click **Preview** to see how your branding looks on a sample document before saving.
+  </Step>
+</Steps>
+
+## Key Practice Settings Reference
+
+The table below summarizes the most important configuration settings, where to find them, and what they affect.
+
+| Setting | Location | Description |
+|---|---|---|
+| Practice Name | Settings → Practice → General | Appears on all patient-facing documents and CMS-1500 claims. |
+| NPI (Type 2) | Settings → Practice → General | Organization-level NPI required for electronic claim submission. |
+| Tax ID / EIN | Settings → Practice → General | Used on claims and financial reports. |
+| Timezone | Settings → Practice → Locale | Controls all appointment and timestamp display across the platform. |
+| Date Format | Settings → Practice → Locale | Sets MM/DD/YYYY or DD/MM/YYYY display throughout the UI. |
+| Provider NPI (Type 1) | Settings → Providers | Individual NPI required per rendering provider for claim lines. |
+| DEA Number | Settings → Providers | Required per provider for e-prescribing Schedule II–V medications. |
+| Logo | Settings → Practice → Branding | Displayed on the patient portal and all printed documents. |
+| Primary Brand Color | Settings → Practice → Branding | Accent color used in the patient portal and email templates. |
+| Default Note Template | Settings → Clinical → Templates | Pre-loaded template when starting a new encounter note. |
+| Appointment Reminders | Settings → Notifications | Enables automated SMS/email reminders for upcoming appointments. |
+| BAA Status | Settings → Compliance | Tracks Business Associate Agreement execution with your organization. |

@@ -1,0 +1,122 @@
+---
+title: "Manage Patient Appointments: Book, Edit, and Cancel Visits"
+sidebarTitle: "Appointments"
+description: "Book, edit, reschedule, and cancel patient appointments, manage recurring visit series, and track statuses across all providers and locations."
+---
+
+The scheduling module is your team's command center for managing patient appointments across all providers, locations, and visit types. Whether you are booking a routine follow-up, an urgent same-day visit, or a telehealth encounter, the calendar gives you a real-time view of availability and patient demand so you can keep your schedule running smoothly.
+
+<Tip>
+Set up automated appointment reminders to reduce no-shows. Navigate to **Settings** → **Scheduling** → **Reminder Rules** to configure SMS and email reminders at 48 hours and 24 hours before each appointment. Practices using automated reminders typically see a 20–30% reduction in no-show rates.
+</Tip>
+
+## Booking an Appointment
+
+<Steps>
+  <Step title="Open the Schedule">
+    In the top navigation bar, click **Schedule**. The calendar view opens, defaulting to today's date. Use the **Day**, **Week**, and **Month** toggles in the upper-right corner to choose your preferred view. You can also click the mini-calendar on the left panel to jump to any date.
+  </Step>
+  <Step title="Select a Provider">
+    Use the **Provider** dropdown in the left panel to filter the calendar to one or more providers. If your organization has multiple locations, use the **Location** filter to narrow the view. To see all providers simultaneously, select **All Providers** — each provider's availability displays in a different color column.
+  </Step>
+  <Step title="Select a Date and Time">
+    Click an open time slot on the calendar grid. Open slots appear in white; blocked or booked time appears shaded. A **New Appointment** panel slides open from the right side of the screen. The selected date, time, and provider are pre-populated.
+
+    Alternatively, click the **+ New Appointment** button in the upper-right corner, then manually set the date, time, provider, and duration.
+  </Step>
+  <Step title="Search for the Patient">
+    In the **Patient** field of the New Appointment panel, type the patient's name, date of birth, or MRN. Select the correct patient from the search results. If the patient is not yet in the system, click **+ Register New Patient** to create their record without losing your slot selection.
+  </Step>
+  <Step title="Select a Visit Type">
+    Choose the appropriate **Visit Type** from the dropdown. Visit types control the default appointment duration, the intake forms sent to the patient, and the billing code suggestions in the encounter note. Common visit types include:
+
+    - Office Visit – New Patient (60 min)
+    - Office Visit – Established Patient (30 min)
+    - Annual Wellness Exam (45 min)
+    - Telehealth Visit (20 min)
+    - Urgent Care (20 min)
+    - Follow-Up (15 min)
+    - Procedure Visit (variable)
+
+    You can override the default duration by adjusting the **Duration** field.
+  </Step>
+  <Step title="Confirm the Appointment">
+    Review all appointment details in the panel:
+
+    - Patient name and date of birth
+    - Provider and location
+    - Date, time, and duration
+    - Visit type
+    - Any **notes** or special instructions (optional — visible to front desk and clinical staff)
+
+    Toggle **Send Confirmation** to notify the patient immediately via their preferred communication method (SMS, email, or patient portal). Click **Save Appointment** to finalize the booking. The appointment appears on the calendar and is linked to the patient's chart under **Upcoming Appointments**.
+  </Step>
+</Steps>
+
+## Appointment Statuses
+
+Every appointment moves through a defined lifecycle of statuses that reflect where the patient is in the visit workflow. Your team updates statuses manually via the appointment card, or the system updates them automatically based on triggers such as patient portal check-in.
+
+| Status | Description |
+|---|---|
+| **Scheduled** | The appointment has been booked but not yet confirmed by the patient. |
+| **Confirmed** | The patient has confirmed attendance via SMS reply, email link, or patient portal. |
+| **Checked In** | The patient has arrived at the practice and been checked in by front desk staff. |
+| **In Progress** | A clinician has opened the encounter note, indicating the visit is actively underway. |
+| **Completed** | The encounter note has been signed and the visit is closed. |
+| **Cancelled** | The appointment was cancelled by the patient or the practice. The cancellation reason is recorded. |
+| **No-Show** | The patient did not arrive and did not cancel. The no-show is logged and may trigger a follow-up task. |
+
+### Updating an appointment status
+
+To change an appointment's status:
+
+1. Click the appointment on the calendar or in the patient's chart.
+2. Click the **Status** dropdown at the top of the appointment detail panel.
+3. Select the new status.
+4. If changing to **Cancelled** or **No-Show**, select a **reason** from the dropdown and add an optional note.
+5. Click **Update Status**.
+
+Status changes are logged with a timestamp and the name of the user who made the change.
+
+## Editing an Appointment
+
+To modify an existing appointment:
+
+1. Click the appointment on the calendar.
+2. In the appointment detail panel, click **Edit**.
+3. Update any fields — date, time, provider, visit type, duration, or notes.
+4. Toggle **Notify Patient of Change** if you want the patient to receive an updated confirmation.
+5. Click **Save Changes**.
+
+To **reschedule** an appointment, click **Reschedule**, choose a new date and time from the availability view, and confirm. The original appointment slot is automatically freed.
+
+## Cancelling an Appointment
+
+To cancel an appointment:
+
+1. Click the appointment on the calendar.
+2. Click **Cancel Appointment**.
+3. Select a **cancellation reason**:
+   - Patient Requested
+   - Provider Unavailable
+   - No Appointment Needed
+   - Rescheduled
+   - Other
+4. Add an optional internal note.
+5. Toggle **Notify Patient** to send a cancellation notification.
+6. Click **Confirm Cancellation**.
+
+Cancelled appointments remain visible on the calendar in a muted style and are retained in the patient's appointment history. The freed time slot becomes immediately available for new bookings.
+
+## Recurring Appointments
+
+For patients who require regular visits (e.g., weekly therapy, monthly chronic disease management), you can create a recurring appointment series:
+
+1. In the New Appointment panel, toggle **Recurring Appointment**.
+2. Set the **recurrence pattern**: Daily, Weekly, Bi-Weekly, or Monthly.
+3. Set the **end condition**: After a number of occurrences or by a specific end date.
+4. Review the list of generated appointment dates.
+5. Click **Save Series** to create all appointments at once.
+
+To cancel a single occurrence without affecting the series, open that appointment and click **Cancel This Occurrence Only**. To cancel the entire series, click **Cancel All Future Occurrences**.

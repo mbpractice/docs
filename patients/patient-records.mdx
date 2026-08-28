@@ -1,0 +1,121 @@
+---
+title: "Patient Records: Navigate and Manage Patient Charts"
+sidebarTitle: "Patient Records"
+description: "Access, search, and manage complete patient profiles including demographics, insurance, medical history, encounters, and care history."
+---
+
+The patient record is the central hub of clinical activity in your EHR. Every interaction — from a scheduled appointment to a lab result — is anchored to a single, longitudinal patient profile that gives your care team a complete, real-time view of each patient's health journey. Understanding how to navigate and manage patient records efficiently is essential for delivering high-quality, coordinated care.
+
+## Patient Record Sections
+
+Each patient record is organized into dedicated sections so your team can quickly locate the information they need. Use the tabs within the patient chart to move between sections.
+
+<CardGroup cols={2}>
+  <Card title="Demographics" icon="user">
+    Core identifying information including name, date of birth, gender, contact details, preferred language, and race/ethnicity for reporting purposes.
+  </Card>
+  <Card title="Insurance" icon="id-card">
+    Primary and secondary payer details, member IDs, group numbers, copay amounts, and eligibility verification status.
+  </Card>
+  <Card title="Medical History" icon="notes-medical">
+    Problem list, past diagnoses, surgical history, family history, social history, and immunization records — all editable and versioned.
+  </Card>
+  <Card title="Encounters" icon="stethoscope">
+    A chronological log of all clinical visits, telehealth sessions, and care events, each linked to its SOAP note, orders, and billing codes.
+  </Card>
+  <Card title="Medications" icon="pills">
+    Active, inactive, and historical medication lists including dosage, prescribing provider, start/end dates, and refill history.
+  </Card>
+  <Card title="Lab Results" icon="flask">
+    Ordered and resulted lab and imaging reports, with trending over time and direct links to the originating order.
+  </Card>
+  <Card title="Documents" icon="file-medical">
+    Uploaded clinical documents, referral letters, consent forms, outside records, and patient-submitted files, all stored and searchable.
+  </Card>
+  <Card title="Allergies" icon="triangle-exclamation">
+    Documented drug, food, and environmental allergies with reaction type, severity, and the date first recorded.
+  </Card>
+</CardGroup>
+
+## Searching and Filtering Patients
+
+Use the **Patients** module in the top navigation bar to access your full patient panel. The patient list supports multiple search and filter methods to help you locate records quickly.
+
+### Search by keyword
+
+Type any of the following into the search bar to find a patient:
+
+- Full name or partial name (first, last, or both)
+- Date of birth (MM/DD/YYYY)
+- Medical record number (MRN)
+- Phone number or email address
+
+Results appear as you type. Select a patient from the dropdown to open their full chart.
+
+### Filter the patient list
+
+Use the **Filters** panel on the left side of the Patients list to narrow results by:
+
+| Filter | Description |
+|---|---|
+| **Provider** | Show patients assigned to a specific primary provider |
+| **Last Visit** | Filter by date range of the most recent encounter |
+| **Insurance Payer** | Display patients covered by a specific insurance plan |
+| **Care Team Member** | Find patients where a given user appears on the care team |
+| **Patient Status** | Active, inactive, deceased, or prospective patients |
+| **Age Range** | Filter by minimum and maximum patient age |
+
+Click **Apply Filters** to update the list. Use **Clear All** to reset to the default view.
+
+### Sorting the patient list
+
+Click any column header — such as **Last Name**, **Date of Birth**, or **Last Visit** — to sort the list ascending or descending by that field.
+
+## Viewing a Patient Record
+
+Click any patient's name in the search results or patient list to open their chart. The chart opens on the **Summary** tab, which provides an at-a-glance overview of active problems, current medications, upcoming appointments, and recent encounters.
+
+Use the section tabs at the top of the chart to navigate to **Demographics**, **Insurance**, **Encounters**, **Medications**, **Labs**, **Documents**, and other areas.
+
+### Chart summary banner
+
+At the top of every patient chart, a persistent banner displays:
+
+- Patient name, age, and date of birth
+- MRN and primary insurance
+- Known allergies (highlighted in red if critical)
+- Preferred pharmacy
+- Care team primary provider
+
+This banner remains visible as you scroll through any section of the chart.
+
+## Editing Patient Information
+
+To update information in any section of the patient record:
+
+1. Navigate to the relevant section tab.
+2. Click the **Edit** button (pencil icon) in the top-right corner of the section.
+3. Make your changes in the editable fields.
+4. Click **Save** to commit the update.
+
+All edits are timestamped and attributed to the logged-in user, creating a full audit trail.
+
+<Tip>
+Use the **Quick Actions** menu — the `⋮` icon in the top-right corner of the patient banner — to instantly access common tasks without leaving the chart. Quick actions include **New Appointment**, **New Encounter**, **Send Message**, **Print Summary**, **Request Lab**, and **Refill Medication**. This saves significant time during busy clinical sessions.
+</Tip>
+
+## Printing and Exporting Records
+
+To generate a clinical summary or export records:
+
+1. Open the patient chart.
+2. Click **Quick Actions** → **Print Summary** or navigate to **Documents** → **Generate Report**.
+3. Select the sections you want to include (e.g., Demographics, Problem List, Medications, Recent Labs).
+4. Choose the output format: **Print**, **PDF Download**, or **Secure Fax**.
+5. Click **Generate**.
+
+The resulting document is automatically saved to the patient's **Documents** section for reference.
+
+## Merging Duplicate Records
+
+If a patient has been registered more than once, you can merge the duplicate records to consolidate their history. Navigate to **Admin** → **Duplicate Management** to review and action flagged duplicates. See [Registering Patients](/patients/registering-patients) for information on preventing duplicates at the point of registration.

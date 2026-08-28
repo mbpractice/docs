@@ -1,0 +1,70 @@
+---
+title: "Connect Your EHR to Health Information Exchanges (HIE)"
+sidebarTitle: "HIE"
+description: "Enroll in regional and national HIE networks to access ADT alerts, external care summaries, and medication histories that improve care coordination."
+---
+
+A Health Information Exchange (HIE) is a network that allows healthcare organizations to share clinical data electronically across organizational boundaries. By connecting your EHR to an HIE, your care team gains access to records from hospitals, urgent care centers, specialists, and pharmacies that your patients have visited — even if those organizations use a completely different EHR system. This means faster, better-informed clinical decisions at every encounter, fewer redundant tests, and stronger continuity of care for patients who see multiple providers.
+
+## What an HIE Provides
+
+Once your practice is enrolled in an HIE network, you gain access to the following data feeds for patients who are members of that network:
+
+- **ADT Alerts (Admit, Discharge, Transfer)** — receive real-time notifications when one of your patients is admitted to or discharged from a hospital or emergency department, so you can proactively follow up and prevent avoidable readmissions.
+- **Care Summaries (CCD/CCDA)** — view structured clinical documents from other providers, including problem lists, procedures, allergies, immunizations, and visit notes.
+- **Medication History** — access a consolidated list of medications prescribed by any HIE-connected provider and filled at any participating pharmacy, giving you a more complete picture of what the patient is actually taking.
+- **Lab and Imaging Results** — view results ordered by other providers when those organizations share data through the exchange.
+- **Immunization Records** — pull immunization data from state immunization registries where supported by the HIE network.
+
+## Enroll in an HIE Network
+
+<Steps>
+  <Step title="Identify Your Regional HIE">
+    Navigate to **Settings → Integrations → Health Information Exchange**. The system will suggest HIE networks that serve your practice's geographic area based on your registered address. You can also search by state or network name to find national networks such as CommonWell or Carequality.
+  </Step>
+  <Step title="Submit Your Enrollment Application">
+    Click **Request Enrollment** next to your chosen HIE. Complete the enrollment form, which includes your organization's NPI, Tax ID, and primary contact information. Some HIEs require a signed participation agreement before your application is approved. Upload the signed agreement directly in the enrollment form if prompted.
+  </Step>
+  <Step title="Complete Patient Consent Configuration">
+    Configure the patient consent model required by your HIE. Most networks require you to document patient consent before querying their records. Set your practice's default consent workflow in **Settings → Integrations → HIE → Consent Settings** (see the Note below for details).
+  </Step>
+  <Step title="Activate the Connection">
+    Once the HIE approves your enrollment and returns your connection credentials, click **Activate** in the HIE settings panel. The system will perform a connectivity test and display an **Active** status when the handshake is successful.
+  </Step>
+  <Step title="Configure ADT Alert Subscriptions">
+    In **Settings → Integrations → HIE → ADT Alerts**, choose which patient panels should receive admission and discharge notifications. You can subscribe all patients, or limit alerts to specific provider panels or care teams.
+  </Step>
+</Steps>
+
+<Note>
+  HIE networks operate under varying **patient consent models** depending on state law and network policy. The two most common models are **opt-in** (the patient must affirmatively consent before their data is shared or queried) and **opt-out** (data is shared by default unless the patient objects). You are responsible for ensuring your consent documentation and workflow match the requirements of each HIE you participate in. Review your HIE's participation agreement carefully and consult your compliance officer before activating data sharing. Patient consent records are stored in the patient's chart under **Patient Info → Consents**.
+</Note>
+
+## Querying a Patient's External Records
+
+You can query the HIE for a patient's external records at any time from the patient chart:
+
+1. Open the patient's chart and click **External Records** in the left navigation panel.
+2. Click **Query HIE** to send a patient demographic query to all connected HIE networks simultaneously.
+3. The system matches the patient using demographic identifiers (name, date of birth, gender, address) and returns a list of available documents and data sources.
+4. Select the records you want to review. Clinical documents open as structured summaries directly inside the chart viewer.
+5. To import specific data elements — such as a medication, allergy, or problem — into the active chart, click **Import** next to that item. Imported data is tagged with the source organization and date to maintain provenance.
+
+Queries are logged automatically in the patient's audit trail, recording which user queried the HIE, when, and what data was returned.
+
+## ADT (Admit/Discharge/Transfer) Notifications
+
+ADT alerts are among the most clinically valuable features of HIE connectivity. When a subscribed patient is admitted, discharged, or transferred at any participating facility, your practice receives a real-time notification in the **Care Alerts** inbox accessible from the main navigation bar.
+
+Each alert includes:
+
+- The patient's name and date of birth
+- The event type (Admission, Discharge, or Transfer)
+- The facility name and date/time of the event
+- The admitting or discharging diagnosis (when provided by the sending facility)
+
+Use the **Care Alerts** inbox to assign follow-up tasks directly to care coordinators or providers. Unreviewed alerts older than 48 hours are escalated automatically if you have configured escalation rules in **Settings → Notifications → Care Alerts**.
+
+<Tip>
+  Use incoming HIE medication history data as the starting point for your **medication reconciliation** workflow at intake. When a patient arrives for a new patient visit or post-discharge follow-up, open the **External Records** panel, query the HIE, and click **Reconcile Medications** to view the patient's external medication list side-by-side with their current chart medications. You can accept, reject, or flag individual medications for discussion, and the reconciled list is added to the encounter note automatically. This dramatically reduces the time spent on manual medication histories and catches discrepancies that patients may not volunteer.
+</Tip>

@@ -1,0 +1,137 @@
+---
+title: "Insurance Claims: Submit, Track, and Resolve Denials"
+sidebarTitle: "Insurance Claims"
+description: "Add payers, capture charges, submit clean electronic claims, track adjudication status, and resolve denials to maximize your practice's reimbursement."
+---
+
+Insurance claims are the primary revenue driver for most practices, and every step between a completed encounter and a paid claim matters. This guide walks you through configuring payers, capturing charges accurately, submitting clean electronic claims through your clearinghouse, monitoring claim status in real time, and recovering revenue lost to denials or appeals.
+
+## Adding Payers
+
+Before you can submit a claim to an insurance company, you must add that payer to your system and configure its billing settings.
+
+1. Navigate to **Billing → Payers → Add Payer**.
+2. Search for the payer by name or Payer ID (the unique identifier assigned by the clearinghouse).
+3. Enter the **EDI Payer ID**, the **claims mailing address** (for paper claims fallback), and the **timely filing limit** in days.
+4. Set the **fee schedule** associated with this payer if you have a contracted rate.
+5. Enable **Electronic Remittance Advice (ERA)** enrollment if the payer supports it—this allows payment posting to happen automatically.
+6. Click **Save Payer**.
+
+Repeat this process for every insurance plan your practice accepts. You can also import a payer list in bulk using the **Import Payers (CSV)** option under **Settings → Billing**.
+
+## Entering Charges After an Encounter
+
+After a provider signs a clinical note, the encounter appears in the **Charge Entry** queue under **Billing → Charge Entry**.
+
+1. Open the encounter from the queue.
+2. Confirm the **date of service**, **rendering provider**, **place of service code**, and **facility** (if applicable).
+3. Add one or more **diagnosis codes (ICD-10-CM)**. The primary diagnosis must appear first.
+4. Add **procedure codes (CPT or HCPCS)** for each service rendered. Include modifiers where required (e.g., `-25` for a significant, separately identifiable E/M service).
+5. Enter the **units**, **fee**, and any **NDC codes** for administered medications.
+6. Confirm the patient's active **insurance** on file. If the patient has multiple plans, verify the coordination of benefits (COB) order.
+7. Click **Save Charges**. The encounter moves to the **Ready to Submit** queue.
+
+<Note>
+  If the encounter has no charges attached within 48 hours of the sign date, the provider receives an automatic reminder task. You can configure this threshold under **Settings → Billing → Charge Capture Alerts**.
+</Note>
+
+## Claim Scrubbing and Validation
+
+Before a claim is transmitted to the clearinghouse, the system runs an automated scrubbing process to catch errors that would cause a rejection or denial.
+
+The scrubber checks for:
+
+- **Missing or invalid diagnosis codes** — ICD-10 codes must be valid for the date of service.
+- **Diagnosis-procedure code mismatches** — certain CPT codes require specific ICD-10 codes to justify medical necessity.
+- **Duplicate claims** — the system flags claims with the same patient, date of service, and procedure code as potential duplicates.
+- **Invalid modifiers** — modifiers must be appropriate for the procedure code and payer.
+- **Missing required fields** — NPI numbers, taxonomy codes, and place of service codes must be present.
+- **Eligibility mismatches** — if an eligibility check was run at check-in, the system flags any plan discrepancies.
+
+Claims that pass all checks move to **Ready to Transmit**. Claims with errors appear in the **Claim Errors** queue with a description of each issue and a suggested correction. Resolve all errors before resubmitting.
+
+## Electronic Claim Submission {#clearinghouse-connection}
+
+<Warning>
+  Every payer sets a **timely filing deadline**—typically 90 days to 1 year from the date of service—after which they will automatically deny the claim. Submit claims as quickly as possible after charge entry to avoid forfeiting reimbursement. Configure your payer-specific timely filing limits under **Billing → Payers** so the system can alert you to claims at risk.
+</Warning>
+
+Once charges are validated and the claim is in the **Ready to Transmit** queue, you can submit individually or in batch.
+
+<Steps>
+  <Step title="Open the Submission Queue">
+    Go to **Billing → Claims → Ready to Transmit**. Review the list of claims pending submission. Use the filter bar to narrow by payer, provider, date range, or facility.
+  </Step>
+  <Step title="Select Claims">
+    Check the box next to individual claims, or click **Select All** to include every claim in the current filtered view. The total claim count and billed amount appear at the bottom of the screen.
+  </Step>
+  <Step title="Review and Confirm">
+    Click **Submit Claims**. A summary dialog shows the number of claims, total billed amount, and the destination clearinghouse. Confirm the details are correct.
+  </Step>
+  <Step title="Transmit to Clearinghouse">
+    Click **Confirm and Transmit**. The system generates an 837P (or 837I) file and sends it to your configured clearinghouse. Each claim receives a **Transmission ID** for tracking.
+  </Step>
+  <Step title="Monitor Acknowledgement">
+    Within minutes, the clearinghouse returns a **999 Acknowledgement** confirming receipt. If the clearinghouse rejects the batch (rare), an error report appears in **Billing → Claim Errors**. Accepted claims move to **Submitted — Pending Payer Response**.
+  </Step>
+</Steps>
+
+## Tracking Claim Status
+
+After submission, monitor each claim's progress from the **Claims Tracker** at **Billing → Claims → All Claims**.
+
+| Status | Meaning |
+|---|---|
+| **Ready to Transmit** | Charges entered, scrubbing passed, awaiting submission. |
+| **Submitted** | Claim transmitted to clearinghouse; payer acknowledgement pending. |
+| **Acknowledged** | Clearinghouse confirmed receipt; payer adjudication in progress. |
+| **Paid** | Payer has adjudicated and issued payment; ERA posted. |
+| **Partially Paid** | Payer paid a portion of the claim; remaining balance may be patient responsibility or a denial. |
+| **Denied** | Payer rejected the claim in full; denial reason code attached. |
+| **Appealed** | A formal appeal has been submitted; awaiting payer response. |
+| **Closed** | Claim is resolved — paid, written off, or patient balance transferred. |
+
+For real-time status updates, enable **Claim Status Transactions (276/277)** under **Settings → Integrations → Clearinghouse**. The system will automatically poll the clearinghouse every 24 hours and update claim statuses.
+
+## Handling Denials and Appeals
+
+Denied claims appear in **Billing → Claims → Denials**. Each denial includes the payer's **Claim Adjustment Reason Code (CARC)** and, where available, a **Remark Code (RARC)** with additional detail.
+
+### Common Denial Codes and Resolutions
+
+| CARC | Description | Resolution |
+|---|---|---|
+| **4** | The service is inconsistent with the modifier. | Review and correct the modifier; resubmit. |
+| **16** | Claim lacks information needed for adjudication. | Review the 277CA for missing fields; correct and resubmit. |
+| **18** | Duplicate claim submitted. | Verify this isn't a true duplicate; if not, attach proof and appeal. |
+| **22** | This care may be covered by another payer. | Verify COB order; submit to primary payer first, then secondary. |
+| **29** | The time limit for filing has expired. | Gather proof of timely filing (clearinghouse transmission receipt); submit a timely filing appeal. |
+| **50** | Non-covered service. | Verify patient's benefits; bill patient or write off per contract. |
+| **96** | Non-covered charge(s). | Check plan exclusions; if billed in error, adjust off. If covered, appeal with supporting documentation. |
+| **97** | Payment is included in the allowance for another service. | Review bundling edits; unbundle if appropriate or accept the payment. |
+| **CO-4** | Modifier is inconsistent with procedure code. | Verify modifier appropriateness; correct and resubmit. |
+| **PR-1** | Deductible amount. | Post as patient responsibility and generate a patient statement. |
+
+### Submitting an Appeal
+
+1. Open the denied claim from **Billing → Claims → Denials**.
+2. Review the denial reason and gather supporting documentation (clinical notes, prior authorization, proof of medical necessity).
+3. Click **Create Appeal**.
+4. Select the appeal type: **Reconsideration**, **Formal Appeal**, or **External Review**.
+5. Attach supporting documents and write a brief appeal summary in the notes field.
+6. Click **Submit Appeal**. The claim status changes to **Appealed**.
+
+Track all open appeals from **Billing → Claims → Appeals**. Set follow-up reminders to ensure no appeal goes unacknowledged beyond the payer's response window.
+
+## Secondary Insurance Claims
+
+When a patient has both a primary and secondary insurance plan, the system automatically creates a secondary claim after the primary payer's ERA is posted.
+
+1. Ensure both plans are entered in the patient's **Insurance** tab with the correct coordination of benefits (COB) order.
+2. After the primary ERA posts, navigate to **Billing → Claims → Secondary Claims Queue**.
+3. The secondary claim pre-populates with the primary payer's adjudication data (paid amount, adjustments, and patient responsibility) in the **Other Insurance** section of the claim form.
+4. Review the crossover information and click **Submit to Secondary**.
+
+<Note>
+  Some payers—particularly Medicare supplemental plans—accept **crossover claims** automatically and do not require a separate submission. Check your secondary payer's rules under **Billing → Payers** to see if crossover is enabled.
+</Note>

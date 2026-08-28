@@ -1,0 +1,149 @@
+---
+title: "Billing Reports: AR Aging, Collections, and Productivity"
+sidebarTitle: "Reports"
+description: "Monitor revenue cycle performance with AR aging, collections summaries, denial analytics, and provider productivity reports you can export or schedule."
+---
+
+Billing reports give you a clear picture of your practice's financial performance at every stage of the revenue cycle. Whether you're tracking outstanding insurance balances, identifying denial trends, measuring provider productivity, or reconciling monthly collections, the Reports module puts the data you need in an accessible, filterable format. Run reports on demand, schedule automatic delivery, and export results for use in external tools.
+
+## Available Reports
+
+<Tip>
+  Start your billing review with the **AR Aging Report**. It shows exactly how much money is owed to your practice and how long it has been outstanding, helping you prioritize collection efforts on the oldest and largest balances before they reach timely filing or collections thresholds.
+</Tip>
+
+<AccordionGroup>
+  <Accordion title="Accounts Receivable (AR) Aging">
+    **What it shows:** A snapshot of all open balances owed to your practice, segmented into aging buckets: 0–30, 31–60, 61–90, 91–120, and 120+ days from the date of service. Balances are broken down by **payer AR** (amounts owed by insurance) and **patient AR** (amounts owed by patients).
+
+    **Key columns:** Patient name, payer, date of service, billed amount, expected reimbursement, amount paid, and outstanding balance.
+
+    **How to use it:**
+    - Sort by the **120+ days** column to surface the oldest balances that need immediate attention.
+    - Filter by **payer** to identify which insurance companies are consistently slow to pay.
+    - Use the **Patient AR** filter to build a worklist for your collections team.
+    - Compare month-over-month to measure whether your AR is growing or shrinking.
+
+    Navigate to **Billing → Reports → AR Aging** to run this report.
+  </Accordion>
+
+  <Accordion title="Collections Summary">
+    **What it shows:** A summary of all payments collected within a specified date range, broken down by payment source (insurance ERA, patient copay, patient payment, patient portal, payment plan installment) and by provider, facility, or payer.
+
+    **Key metrics:** Total collected, average days to payment, collection rate by payer, and month-over-month collection trend.
+
+    **How to use it:**
+    - Review at the end of each month to reconcile deposits with posted payments.
+    - Compare your **collection rate** (payments collected ÷ net charges) against the industry benchmark of 95–98% to assess billing team performance.
+    - Identify payers where your collection rate is significantly below average — these may have systemic claim issues worth investigating.
+
+    Navigate to **Billing → Reports → Collections Summary** to run this report.
+  </Accordion>
+
+  <Accordion title="Charge Summary">
+    **What it shows:** A breakdown of all charges entered within a date range, organized by procedure code (CPT/HCPCS), provider, and payer. Shows the total units billed, total amount billed, and average charge per unit.
+
+    **Key columns:** Procedure code, description, units billed, total billed, total allowed, total paid, and write-off amount.
+
+    **How to use it:**
+    - Identify your highest-volume procedure codes and confirm that billed amounts align with your contracted fee schedules.
+    - Spot-check for outlier charges that may indicate a charge entry error.
+    - Use the **Provider** filter to review each provider's billing activity for a productivity review.
+    - Compare billed vs. allowed amounts to evaluate the adequacy of your contracted rates.
+
+    Navigate to **Billing → Reports → Charge Summary** to run this report.
+  </Accordion>
+
+  <Accordion title="Payment Summary">
+    **What it shows:** A detailed log of every payment transaction posted in a given date range, including ERA payments, manual insurance payments, and patient payments. Each transaction shows the posting date, payment source, check or EFT number, and amount.
+
+    **Key columns:** Payment date, payer or patient, check/EFT number, amount, posting user, and associated claim or encounter.
+
+    **How to use it:**
+    - Use daily to reconcile the day's deposits with posted payments in the system.
+    - Filter by **posting user** to audit payment entry accuracy.
+    - Identify unmatched ERA payments that were deposited but not yet posted to a specific claim.
+
+    Navigate to **Billing → Reports → Payment Summary** to run this report.
+  </Accordion>
+
+  <Accordion title="Denial Report">
+    **What it shows:** All denied claims within a date range, grouped by denial reason code (CARC/RARC), payer, and provider. Includes the denial rate as a percentage of total claims submitted.
+
+    **Key columns:** Claim number, patient, date of service, payer, denial code, denial description, billed amount, and denial date.
+
+    **How to use it:**
+    - Sort by **denial code** to identify systemic issues — for example, a spike in CO-4 (modifier inconsistent with procedure) suggests a training opportunity for charge entry staff.
+    - Filter by **payer** to find insurers with unusually high denial rates.
+    - Use the **Billed Amount** column to prioritize high-value denials for appeal.
+    - Track your denial rate over time; a rate above 5% typically indicates a process problem worth addressing.
+
+    Navigate to **Billing → Reports → Denial Report** to run this report.
+  </Accordion>
+
+  <Accordion title="Provider Productivity">
+    **What it shows:** A per-provider breakdown of clinical and billing activity, including the number of encounters, charges entered, procedures billed, total billed amount, total collected, and RVU (Relative Value Unit) totals for practices that use RVU-based compensation.
+
+    **Key columns:** Provider name, encounters, unique patients, total charges, total collected, collection rate, total RVUs, and RVU breakdown by category (work, practice expense, malpractice).
+
+    **How to use it:**
+    - Use during provider compensation reviews to compare productivity across the group.
+    - Identify providers whose collection rate lags behind peers — this may indicate documentation gaps, coding differences, or patient mix issues.
+    - Filter by date range to produce monthly, quarterly, or annual productivity summaries.
+    - Export to CSV for use in your payroll or compensation model spreadsheets.
+
+    Navigate to **Billing → Reports → Provider Productivity** to run this report.
+  </Accordion>
+</AccordionGroup>
+
+## Scheduling Automated Report Delivery
+
+Instead of running reports manually, you can schedule any report to generate and deliver automatically on a recurring basis.
+
+1. Open the report you want to schedule and configure the desired filters (date range, provider, payer, etc.).
+2. Click **Schedule Delivery** in the top-right corner of the report page.
+3. Set the **frequency**: Daily, Weekly, or Monthly. For monthly reports, choose the day of the month (e.g., the 1st business day).
+4. Set the **date range logic**: for example, "Previous Month" will always resolve to the full prior calendar month when the report runs.
+5. Enter one or more **recipient email addresses**. You can add internal users or external accountants.
+6. Choose the **delivery format**: PDF, CSV, or both.
+7. Click **Save Schedule**. The report will now run and deliver automatically at the configured interval.
+
+Manage all scheduled reports from **Billing → Reports → Scheduled Reports**. From there you can pause, edit, or delete any schedule, and view the last-delivered report for each.
+
+<Note>
+  Scheduled reports containing patient financial data are sent as **encrypted email attachments** when delivered externally. Ensure that recipient email addresses outside your organization are authorized to receive PHI under your BAA agreements with business associates.
+</Note>
+
+## Exporting Reports
+
+Every report in the Billing module supports export to **CSV** and **PDF** formats.
+
+### Export to CSV
+
+CSV exports include all rows and columns in the current report view, respecting any active filters. Use CSV exports to:
+
+- Import data into Excel or Google Sheets for further analysis.
+- Feed data into an external accounting system (e.g., QuickBooks).
+- Provide raw data to your billing service or management company.
+
+To export: Run the report, apply your filters, then click **Export → CSV** in the toolbar.
+
+### Export to PDF
+
+PDF exports generate a formatted, print-ready version of the report suitable for sharing with practice administrators, physicians, or board members. PDF exports include your practice name, report date range, and applied filters in the header.
+
+To export: Run the report, apply your filters, then click **Export → PDF** in the toolbar.
+
+### Bulk Export
+
+To export multiple reports at once:
+
+1. Go to **Billing → Reports → Export Center**.
+2. Select the reports you want to export.
+3. Choose a date range that applies to all selected reports.
+4. Select the output format and click **Generate Export Package**.
+5. The system compiles all selected reports into a single ZIP archive and emails you a download link when ready.
+
+<Info>
+  Export files are retained for **30 days** in the Export Center download history. After 30 days, you must regenerate the export. For long-term record retention, download and store exports in your practice's document management system.
+</Info>

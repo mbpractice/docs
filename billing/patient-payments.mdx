@@ -1,0 +1,140 @@
+---
+title: "Patient Payments: Copays, Statements, and Payment Plans"
+sidebarTitle: "Patient Payments"
+description: "Collect copays at check-in, post payments, send patient statements, and offer online payment plans to reduce outstanding balances and improve cash flow."
+---
+
+Patient payments represent the portion of a visit's cost that insurance doesn't cover—copays, deductibles, coinsurance, and self-pay balances. Collecting these amounts efficiently, posting them accurately, and giving patients flexible ways to pay all contribute directly to your practice's financial health and patient satisfaction. This guide covers every step of the patient payment workflow, from the front desk at check-in to automated online collections.
+
+## Collecting Copays at Check-In
+
+The best time to collect a copay is before the patient sees the provider. Use the **Check-In** workflow to capture payment at the front desk.
+
+1. Open the patient's appointment from **Scheduling → Today's Appointments** or the **Check-In Queue**.
+2. Click **Check In**. The system displays the patient's active insurance and the expected copay amount based on their plan's benefits.
+3. Under **Collect Payment**, enter the amount and select a payment method: **Cash**, **Check**, **Credit/Debit Card**, or **Card on File**.
+4. If paying by card, swipe or tap using the connected card reader, or manually enter the card number if a reader is not available.
+5. Click **Post Payment**. A receipt is generated automatically and can be printed or emailed to the patient.
+6. The copay posts immediately to the patient's account ledger and reduces any open balance.
+
+<Tip>
+  Enable the **Eligibility Check at Check-In** feature under **Settings → Scheduling** to automatically verify the patient's benefits and populate the expected copay amount before the patient arrives. Real-time eligibility reduces collection surprises at the front desk.
+</Tip>
+
+## Posting Patient Payments
+
+After insurance adjudication, any remaining patient responsibility appears as an open balance on the patient's account. Post payments as they are received to keep the ledger accurate.
+
+<Steps>
+  <Step title="Open the Patient Account">
+    Search for the patient using the global search bar or navigate to **Billing → Patient Payments → Post Payment**. Select the patient to open their account ledger.
+  </Step>
+  <Step title="Select the Open Balance">
+    Review the list of open charges. Each line shows the date of service, procedure, billed amount, insurance payment, adjustments, and the remaining patient balance. Select the charge(s) you are applying the payment to.
+  </Step>
+  <Step title="Enter Payment Details">
+    Enter the **payment amount**, **payment method** (cash, check, card, or online), the **check number** (if applicable), and the **payment date**. If the payment covers multiple charges, use the **Distribute Payment** tool to allocate amounts across line items.
+  </Step>
+  <Step title="Apply Adjustments (If Needed)">
+    If you are writing off a small balance (e.g., a courtesy adjustment or a small-balance write-off policy), select the appropriate **adjustment code** and enter the amount. Common adjustment codes include: Courtesy Discount, Bad Debt Write-Off, and Small Balance Adjustment.
+  </Step>
+  <Step title="Save and Post">
+    Click **Post Payment**. The ledger updates immediately, the open balance decreases, and a receipt is generated. If the patient's account balance reaches zero, the encounter is automatically marked **Closed**.
+  </Step>
+</Steps>
+
+## Patient Statements
+
+After all insurance payments are posted, the system generates a **patient statement** for any remaining balance. Statements consolidate all open charges across multiple dates of service into a single, readable bill.
+
+### Generating Statements
+
+- Navigate to **Billing → Statements → Generate Statements**.
+- Filter by **balance age**, **minimum balance threshold**, **provider**, or **facility** to target the right accounts.
+- Choose a delivery method: **Print & Mail**, **Email**, or **Patient Portal**.
+- Click **Generate**. The system creates a statement batch and queues it for delivery.
+
+### Statement Settings
+
+Configure your default statement preferences under **Settings → Billing → Statement Configuration**:
+
+| Setting | Description |
+|---|---|
+| **Minimum Balance** | Suppress statements below this amount (e.g., $5.00) to avoid sending bills for trivial balances. |
+| **Statement Frequency** | How often statements are sent — weekly, biweekly, or monthly. |
+| **Number of Statements Before Collections** | After this many unanswered statements, the account is flagged for collections review. |
+| **Statement Message** | A custom message printed at the bottom of every statement (e.g., payment portal URL, office hours). |
+| **Due Date** | Number of days from the statement date that payment is due (e.g., 30 days). |
+
+## Online Patient Payment Portal
+
+<Tip>
+  Enabling the online payment portal is one of the fastest ways to reduce accounts receivable days. Practices that offer online payment typically see **30–40% of patient balances collected within 48 hours** of a statement being sent. Activate the portal under **Settings → Patient Portal → Payments**.
+</Tip>
+
+The patient payment portal gives patients 24/7 access to their account balance and the ability to pay online without calling the office.
+
+### Enabling the Portal
+
+1. Go to **Settings → Patient Portal → Payments**.
+2. Toggle **Online Payments** to **Enabled**.
+3. Connect your payment processor by entering your **merchant account credentials** (the platform integrates with Stripe and PaySimple by default).
+4. Set a **convenience fee** (optional) if your state law permits surcharging.
+5. Click **Save**.
+
+### How Patients Access the Portal
+
+Patients receive a link to the portal in their email statement or via the patient portal login. After authenticating, they can:
+
+- View itemized charges and explanations of benefits.
+- Make a one-time payment using a credit or debit card.
+- Set up a payment plan (see below).
+- Save a card on file for future payments.
+- Download receipts and payment history.
+
+<Note>
+  The patient payment portal is PCI DSS Level 1 compliant. Card data is tokenized at the point of entry and never stored on EHR servers. Your payment processor handles all cardholder data environments. Do not collect or store raw card numbers in chart notes, free-text fields, or any other area of the EHR outside the secure payment workflow.
+</Note>
+
+## Credit Card on File
+
+Storing a tokenized card on file streamlines future payments and reduces the need to contact patients for outstanding balances.
+
+### Saving a Card on File
+
+1. Open the patient's account and click **Payment Methods → Add Card**.
+2. Have the patient swipe, tap, or manually enter their card in the secure card entry widget.
+3. The system tokenizes the card immediately. Only the last four digits and card type are stored and visible in the EHR.
+4. Ask the patient to sign the **Credit Card Authorization Form** (generated automatically) and upload it to the patient's document tab.
+
+### Charging a Card on File
+
+1. Open the patient's account ledger and select the open charge(s).
+2. Click **Post Payment → Charge Card on File**.
+3. Confirm the amount and click **Charge**. The transaction processes in real time, and a receipt is emailed to the patient automatically.
+
+You can also configure **automatic balance collection** — when a patient balance is confirmed after insurance adjudication, the system automatically charges the card on file and emails a receipt. Enable this under **Settings → Billing → Auto-Collect**.
+
+## Payment Plans
+
+For patients with large balances, a payment plan makes it easier to collect the full amount over time rather than writing off unpaid debt.
+
+### Setting Up a Payment Plan
+
+1. From the patient's account, click **Payment Plans → Create Plan**.
+2. Enter the **total balance** to include in the plan. You can include all open charges or select specific encounters.
+3. Set the **installment amount** or the **number of installments**, and the system calculates the schedule automatically.
+4. Set the **payment frequency**: weekly, biweekly, or monthly.
+5. Select the **payment method**: card on file, manual payment, or ACH bank draft.
+6. Click **Activate Plan**.
+
+The patient receives a confirmation email with the full payment schedule. Each installment is posted automatically on its due date (if a card on file or ACH is configured). Missed payments trigger an automatic reminder notification to the patient and a task alert to your billing team.
+
+### Monitoring Active Plans
+
+View all active payment plans at **Billing → Patient Payments → Payment Plans**. The dashboard shows each plan's:
+
+- Total amount, amount paid, and remaining balance.
+- Next scheduled payment date and amount.
+- Payment history with receipt links.
+- Status: **Active**, **Completed**, **Past Due**, or **Cancelled**.

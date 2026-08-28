@@ -1,0 +1,124 @@
+---
+title: "Assign and Manage a Patient Care Team in Your EHR System"
+sidebarTitle: "Care Team"
+description: "Learn how to assign primary providers, add care team members, manage referrals, and coordinate communication across a patient's care team."
+---
+
+A well-configured care team ensures that every clinician involved in a patient's care has appropriate visibility, receives relevant notifications, and can act within their scope. Your EHR's care team feature connects primary providers, specialists, nurses, care coordinators, and external providers around a single patient record — enabling seamless coordination and reducing the risk of communication gaps.
+
+<Tip>
+Use care teams strategically for patients with complex or chronic conditions. When all active providers are listed on the care team, each member receives encounter summaries, critical lab alerts, and medication change notifications automatically — no manual forwarding required.
+</Tip>
+
+## Primary Provider Assignment
+
+The primary provider is the clinician with principal responsibility for the patient's longitudinal care. This assignment drives appointment scheduling defaults, billing provider selection, and care gap attributions.
+
+<Steps>
+  <Step title="Open the Patient Chart">
+    Navigate to **Patients** and search for the patient by name, date of birth, or MRN. Click their name to open the chart.
+  </Step>
+  <Step title="Go to the Care Team Tab">
+    In the patient chart, click the **Care Team** tab. If a primary provider is already assigned, their name appears under the **Primary Provider** heading with their specialty and contact information.
+  </Step>
+  <Step title="Assign or Change the Primary Provider">
+    Click **Edit Primary Provider** (or **Assign Primary Provider** if none is set). In the search field, type the provider's name or select from the dropdown list of active providers in your organization. Click the provider's name to select them.
+  </Step>
+  <Step title="Set an Effective Date">
+    Enter the **effective date** for this assignment. This is typically today's date for new patients or the date of a care transfer. The previous assignment is retained in the care team history for reference.
+  </Step>
+  <Step title="Save the Assignment">
+    Click **Save**. The new primary provider's name and photo appear in the **Primary Provider** card at the top of the Care Team tab and in the persistent patient chart banner.
+  </Step>
+</Steps>
+
+## Adding Care Team Members
+
+Beyond the primary provider, you can add any number of care team members with defined roles and access levels.
+
+To add a care team member:
+
+1. On the **Care Team** tab, click **+ Add Care Team Member**.
+2. Search for the provider or staff member by name. Results include all active users in your organization.
+3. Select the individual from the results list.
+4. Choose their **role on the care team** from the dropdown:
+   - Attending Physician
+   - Consulting Specialist
+   - Nurse Practitioner / PA
+   - Registered Nurse
+   - Care Coordinator
+   - Medical Assistant
+   - Behavioral Health Provider
+   - Other (with a free-text role description)
+5. Set the **participation dates** — a start date and, optionally, an end date (useful for temporary care team assignments such as hospital rotations or short-term consults).
+6. Toggle **Receive Notifications** to specify whether this member should receive automated alerts for this patient (see [Care Team Notifications](#care-team-notifications) below).
+7. Click **Add to Care Team**.
+
+The new member appears in the care team list with their role, participation dates, and notification status displayed.
+
+### Editing or removing a care team member
+
+To update a care team member's role or dates, click the **pencil icon** next to their entry, make your changes, and click **Save**.
+
+To remove a member from the active care team, click the **✕ Remove** button next to their entry. The removal is logged with a timestamp, and the member's historical participation remains visible in the **Care Team History** section at the bottom of the tab.
+
+## Referrals and External Providers
+
+You can add external providers — clinicians outside your organization — to the care team to maintain a complete picture of who is involved in the patient's care.
+
+To add an external provider:
+
+1. Click **+ Add External Provider**.
+2. Search the external provider directory by name, NPI, or specialty. If the provider is not in your directory, click **Create External Provider** to enter their details manually.
+3. Enter the external provider's:
+   - Full name and credentials
+   - Specialty
+   - Organization / practice name
+   - Phone and fax number
+   - NPI (if known)
+4. Select their **role** (e.g., Referring Provider, Consulting Specialist, Hospitalist, PCP on record).
+5. Attach any relevant **referral order** if this provider was added as the result of a referral.
+6. Click **Save External Provider**.
+
+External providers are displayed in a separate **External Providers** section of the Care Team tab. They receive care summaries only if you explicitly fax or send a Direct message — they do not have system login access.
+
+### Tracking referral status
+
+Referrals created within your EHR are linked to the care team entry for the referred-to provider. Click the referral link in the external provider's care team card to view the referral status: **Sent**, **Acknowledged**, **Appointment Scheduled**, or **Report Received**.
+
+## Care Team Communication
+
+Your EHR provides built-in tools for secure communication among care team members without leaving the patient chart.
+
+### Secure messages
+
+To send a message to one or more care team members:
+
+1. Open the patient chart and click **Quick Actions** → **Send Message**.
+2. In the **To** field, search for and select one or more recipients. Only care team members and staff in your organization can be recipients.
+3. Type your message in the body. You can @-mention specific team members to flag their attention.
+4. Attach relevant chart items — lab results, encounter notes, documents — using the **Attach from Chart** button.
+5. Click **Send**. The message appears in the recipient's inbox and in the **Messages** section of the patient chart, creating a searchable communication audit trail.
+
+### Chart notes to care team
+
+To leave a note visible to the entire care team without sending an individual message:
+
+1. On the Care Team tab, click **+ Add Care Team Note**.
+2. Type your note (e.g., patient updated care preferences, next steps after specialist consult).
+3. Click **Save**. The note is visible to all care team members with chart access and is time-stamped with your name.
+
+## Care Team Notifications
+
+Each care team member can be individually configured to receive automated notifications for a patient. Notifications are sent via the in-app inbox and, optionally, by email if the user has enabled email alerts in their profile.
+
+| Notification Type | Description |
+|---|---|
+| **Critical Lab Alert** | Triggered when a lab result returns with a critical value flag |
+| **Encounter Summary** | Sent after each encounter note is signed by the treating provider |
+| **Medication Change** | Triggered when a new medication is prescribed or an existing one is discontinued |
+| **New Document** | Sent when a new clinical document is uploaded or received via fax |
+| **Appointment Reminder** | A summary of upcoming appointments for care planning purposes |
+| **Care Gap Identified** | Triggered when the system identifies a new preventive care or chronic disease management gap |
+
+To manage notification settings for a care team member, click the **bell icon** next to their name in the care team list, check or uncheck the notification types, and click **Save Preferences**.

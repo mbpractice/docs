@@ -1,0 +1,178 @@
+---
+title: "Create and Manage Clinical Note Templates and Forms"
+sidebarTitle: "Templates & Forms"
+description: "Build reusable note templates, configure smart text macros, and design patient-facing intake forms to standardize and accelerate clinical documentation."
+---
+
+Clinical note templates eliminate redundant typing by pre-populating the sections of an encounter note you complete the same way visit after visit. Whether you're documenting a routine well-child exam or a complex psychiatric evaluation, templates keep your documentation consistent, complete, and fast — so you can spend more time with patients and less time at the keyboard.
+
+## Browsing the Template Library
+
+Your EHR comes with a curated library of evidence-based note templates covering the most common visit types across specialties. Start here before building a custom template — there may already be one that fits your workflow.
+
+**To browse the template library:**
+
+1. Navigate to **Settings → Documentation → Template Library**.
+2. Use the **Category** filter or the search bar to find templates by specialty, visit type, or keyword.
+3. Click any template name to preview its structure and default content.
+4. Click **Use Template** to apply it to a new note immediately, or **Duplicate** to create your own editable copy.
+
+### Available Template Categories
+
+| Category | Example Templates |
+|---|---|
+| **Office Visit** | Established Patient – Acute Illness, Established Patient – Follow-Up, New Patient Comprehensive Exam |
+| **Preventive Care** | Annual Wellness Visit (Medicare), Well-Adult Exam, Pap Smear / Cervical Cancer Screening |
+| **Procedures** | Minor Surgical Procedure, Joint Injection, Wound Care, Laceration Repair |
+| **Mental Health** | Initial Psychiatric Evaluation, Psychotherapy Progress Note, Depression / PHQ-9 Follow-Up |
+| **Pediatrics** | Well-Child Visit (by age group), Sick Child Visit, ADHD Follow-Up, Developmental Screening |
+| **Chronic Disease** | Diabetes Management, Hypertension Follow-Up, Asthma / COPD Management, Heart Failure Visit |
+| **Specialty** | Pre-Operative Evaluation, Post-Operative Visit, Physical Therapy Progress Note, OB Prenatal Visit |
+| **Telehealth** | Telehealth SOAP Note, Telephone Encounter, Asynchronous eVisit |
+
+<Info>
+  Your organization administrator can request additional specialty-specific templates by contacting EHR Support. Custom templates built by your practice are stored separately from the shared library and are visible only to providers within your organization.
+</Info>
+
+---
+
+## Creating a Custom Template
+
+When the library doesn't have exactly what you need, build your own. Custom templates can include pre-filled text, smart text macros, embedded order sets, and linked diagnosis codes.
+
+<Steps>
+  <Step title="Open the Template Builder">
+    Go to **Settings → Documentation → My Templates** and click **+ New Template**. The Template Builder opens in a new panel.
+  </Step>
+  <Step title="Name and categorize the template">
+    Enter a descriptive **Template Name** (for example, "Type 2 Diabetes Quarterly Follow-Up"). Select a **Category** and optionally assign a **Specialty** so the template is easy to find later.
+  </Step>
+  <Step title="Choose a base structure">
+    Select a base note type from the **Structure** dropdown — SOAP Note, Progress Note, H&P, or Blank. The Template Builder loads the corresponding section headings as a starting point.
+  </Step>
+  <Step title="Add default content to each section">
+    Click into any section and type the default text you want pre-filled whenever this template is used. Use smart text macros (see below) for dynamic fields like patient name, date, and provider. Leave sections intentionally blank if you want the provider to fill them in fresh each time.
+  </Step>
+  <Step title="Embed order sets (optional)">
+    Click **+ Add Order Set** within the Plan section to link a pre-configured group of labs, imaging orders, or prescriptions that should be suggested whenever this template is used. Providers can accept or dismiss embedded orders at the time of the visit.
+  </Step>
+  <Step title="Set sharing permissions">
+    Under **Sharing**, choose **Private** (only you can use it), **Practice** (all providers in your organization), or **Department** (a specific group). You can change this setting at any time after saving.
+  </Step>
+  <Step title="Save and test the template">
+    Click **Save Template**. Open a test encounter on a sandbox patient and select your new template to verify that all sections, macros, and order sets behave as expected.
+  </Step>
+</Steps>
+
+<Tip>
+  Keep template default text general enough to apply to most patients in that visit category, then customize the specifics during the actual encounter. Over-specific defaults can slow you down if you spend more time deleting pre-filled content than you would have spent typing from scratch.
+</Tip>
+
+---
+
+## Sharing Templates with Your Practice
+
+Templates you create are private by default. Once you're satisfied with a template, share it with your colleagues to standardize documentation across your practice.
+
+**To share a template:**
+
+1. Go to **Settings → Documentation → My Templates**.
+2. Find the template you want to share and click the **⋯ menu → Edit**.
+3. Under **Sharing**, select **Practice** or **Department**.
+4. Click **Save**. The template immediately becomes available to all providers in the selected group.
+
+Practice administrators can also **promote** a shared template to the **Favorites** list so it appears at the top of the template picker for all providers — useful for high-frequency visit types your team documents daily.
+
+<Note>
+  Only the original template author and practice administrators can edit or delete a shared template. Other providers who use the template can **duplicate** it to create their own private copy that they can modify freely without affecting the shared version.
+</Note>
+
+---
+
+## Using Smart Text and Macros
+
+Smart text macros let you insert dynamic content — patient demographics, clinical data, or frequently used phrases — with a short keyword trigger. Instead of typing "The patient is a 62-year-old male with a history of hypertension," type `.pt` and the macro expands the full phrase automatically, pulling live data from the chart.
+
+### System macros (built-in)
+
+| Macro | Inserts |
+|---|---|
+| `.ptname` | Patient's full name |
+| `.ptage` | Patient's current age |
+| `.ptdob` | Patient's date of birth |
+| `.ptgender` | Patient's documented gender |
+| `.today` | Today's date |
+| `.provider` | Rendering provider's full name and credentials |
+| `.meds` | Patient's current active medication list |
+| `.allergies` | Patient's documented allergy list |
+| `.problems` | Patient's active problem list |
+| `.vitals` | Most recent vital signs from today's encounter |
+
+### Creating custom macros
+
+<Steps>
+  <Step title="Open the Macro Manager">
+    Navigate to **Settings → Documentation → Smart Text & Macros** and click **+ New Macro**.
+  </Step>
+  <Step title="Set the trigger keyword">
+    Enter a short, memorable trigger that starts with a period — for example, `.rosneg` for a normal review of systems statement. Triggers must be unique within your account.
+  </Step>
+  <Step title="Write the expansion text">
+    Type the full text you want the macro to insert. You can include other system macros inside a custom macro — for example, your `.rosneg` expansion could include `.ptname` to personalize the phrase.
+  </Step>
+  <Step title="Save and test">
+    Click **Save Macro**. Open any note, type your trigger keyword, and press **Tab** or **Space** to confirm the expansion.
+  </Step>
+</Steps>
+
+<Tip>
+  Create macros for your most repeated attestation phrases, such as normal exam findings or standard patient education statements. Providers who adopt 10–15 well-chosen macros typically cut their average note time by 20–30%.
+</Tip>
+
+---
+
+## Patient-Facing Intake Forms
+
+Intake forms let patients enter their own health information before or during a visit. Responses flow directly into the patient's chart, reducing manual data entry and improving the completeness of your pre-visit documentation.
+
+### Sending an intake form
+
+1. Navigate to **Schedule** and open the patient's upcoming appointment.
+2. Click **Send Intake Form** and select the form(s) appropriate for the visit type.
+3. Choose the delivery method: **Patient Portal** (recommended), **Email**, or **SMS link**.
+4. Click **Send**. The patient receives a notification and can complete the form on any device.
+
+### Available intake form types
+
+<CardGroup cols={2}>
+  <Card title="New Patient Registration" icon="user-plus">
+    Collects demographics, insurance information, emergency contacts, and primary care preferences. Responses automatically populate the patient's registration record.
+  </Card>
+  <Card title="Medical History" icon="file-medical">
+    Captures past medical history, surgical history, family history, social history, and current medications — reducing the time you spend gathering background during the visit.
+  </Card>
+  <Card title="Review of Systems (ROS)" icon="clipboard-list">
+    A structured symptom checklist across organ systems. Responses pre-populate the ROS section of the encounter note, which you can then review and attest.
+  </Card>
+  <Card title="Consent Forms" icon="file-signature">
+    Customizable consent documents for treatments, procedures, telehealth, and release of information. Patients sign digitally and signed forms are stored in the chart automatically.
+  </Card>
+  <Card title="Condition-Specific Screeners" icon="stethoscope">
+    Validated screening tools including PHQ-9 (depression), GAD-7 (anxiety), AUDIT (alcohol use), and EPDS (postpartum depression). Scores are calculated automatically and flagged for review.
+  </Card>
+  <Card title="Post-Visit Satisfaction" icon="star">
+    Optional patient experience surveys sent automatically after the encounter closes. Aggregate results are available in the **Practice Analytics** dashboard.
+  </Card>
+</CardGroup>
+
+### Building a custom intake form
+
+1. Go to **Settings → Patient Forms → + New Form**.
+2. Drag and drop question types — short text, long text, multiple choice, date, signature, and scale — into the form canvas.
+3. Add conditional logic so follow-up questions appear only when relevant (for example, show smoking history questions only if the patient selects "current smoker").
+4. Set the form's **Auto-Send** rules to trigger automatically for specific appointment types.
+5. Click **Publish** when the form is ready to send to patients.
+
+<Warning>
+  Patient-facing forms that collect protected health information (PHI) are governed by your organization's HIPAA policies. Do not add free-text fields that prompt patients to share sensitive information outside of the secure patient portal. Review your intake forms with your compliance officer before publishing them for the first time.
+</Warning>
