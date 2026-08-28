@@ -26,7 +26,8 @@
               "account-and-staff/inactivate-professional",
               "account-and-staff/signatures-auto-sign",
               "account-and-staff/facilities-rooms",
-              "account-and-staff/professional-default-rates"
+              "account-and-staff/professional-default-rates",
+              "account-and-staff/user-roles-permissions"
             ]
           },
           {
@@ -81,6 +82,24 @@
               "support/claim-warnings",
               "support/contact-support",
               "support/telehealth-troubleshooting"
+            ]
+          },
+          {
+            "group": "Clinical Documentation",
+            "pages": [
+              "clinical/write-session-note",
+              "clinical/diagnosis-treatment-plans",
+              "clinical/copy-previous-note",
+              "clinical/group-notes",
+              "clinical/ai-notes",
+              "clinical/export-client-record"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/dosespot-prescriptions",
+              "integrations/claimmd"
             ]
           }
         ]
